@@ -13,15 +13,23 @@
 <body class='bg-gray-900'>
     <header id='header' class='bg-purple-900 flex flex-grow w-full text-gray-300'>
         <div class='flex-grow'><!-- spaceholder -->&nbsp;</div>
-        <h1 class='text-6xl flex-grow p-2'>Cage & Wine</h1>
-        <nav class='p-4'>
+        <h1 class='text-6xl flex-grow p-2 block'>Cage & Wine</h1>
+        <nav class='p-4 hidden sm:block'>
             <a href="#random" class='p-1 m-1 border-b-2 border-gray-00'>random</a>
             <a href="#about" class='p-1 m-1 border-b-2 border-gray-00'>about</a>
             <a href="#contact" class='p-1 m-1 border-b-2 border-gray-00'>contact</a>
-        <contac>
+        </nav>
     </header>
-    <main class=''>
-        <section id=""></section>
+    <main class='p-2 m-4 flex justify-center'>
+        <section id="pairing-results" class='bg-gray-300 rounded-lg w-96 h-64 m-2 flex justify-center content-center'>
+            <article id="movie" class='self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1'>movie</article>
+            <article id="wine" class='self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1'>wine</article>
+        </section>
+        <section id="search" class='bg-gray-300 w-64 h-64 m-2 rounded-lg'>
+            <div id='form-bucket' class='bg-gray-400'>
+                <!-- add form here plz -->
+            </div>
+        </section>
     </main>
 
     <script src='./assets/js/script.js'></script>
