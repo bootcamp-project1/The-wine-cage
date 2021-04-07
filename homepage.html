@@ -1,37 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mr+Dafoe" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mr+Dafoe"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Exo+2"
+    />
     <title>Cage & Wine</title>
-</head>
-<body class='bg-gray-900'>
-    <header id='header' class='bg-purple-900 flex flex-grow w-full text-gray-300'>
-        <div class='flex-grow'><!-- spaceholder -->&nbsp;</div>
-        <h1 class='text-6xl flex-grow p-2 block'>Cage & Wine</h1>
-        <nav class='p-4 hidden sm:block'>
-            <a href="#random" class='p-1 m-1 border-b-2 border-gray-00'>random</a>
-            <a href="#about" class='p-1 m-1 border-b-2 border-gray-00'>about</a>
-            <a href="#contact" class='p-1 m-1 border-b-2 border-gray-00'>contact</a>
-        </nav>
+  </head>
+  <body class="bg-gray-900">
+    <header
+      id="header"
+      class="bg-purple-900 flex flex-grow w-full text-gray-300"
+    >
+      <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
+      <h1 class="text-6xl flex-grow p-2 block">Cage & Wine</h1>
+      <nav class="p-4 hidden sm:block">
+        <a href="#random" class="p-1 m-1 border-b-2 border-gray-00">random</a>
+        <a href="#about" class="p-1 m-1 border-b-2 border-gray-00">about</a>
+        <a href="#contact" class="p-1 m-1 border-b-2 border-gray-00">contact</a>
+      </nav>
     </header>
-    <main class='p-2 m-4 flex justify-center'>
-        <section id="pairing-results" class='bg-gray-300 rounded-lg w-96 h-64 m-2 flex justify-center content-center'>
-            <article id="movie" class='self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1'>movie</article>
-            <article id="wine" class='self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1'>wine</article>
-        </section>
-        <section id="search" class='bg-gray-300 w-64 h-64 m-2 rounded-lg'>
-            <div id='form-bucket' class='bg-gray-400'>
-                <!-- add form here plz -->
-            </div>
-        </section>
+    <main class="p-2 m-4 flex justify-center">
+      <section
+        id="pairing-results"
+        class="bg-gray-300 rounded-lg w-96 h-64 m-2 flex justify-center content-center"
+      >
+        <article
+          id="movie"
+          class="self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1"
+        >
+          movie
+        </article>
+        <article
+          id="wine"
+          class="self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1"
+        >
+          wine
+        </article>
+      </section>
+
+      <section id="search" class="bg-gray-300 w-64 h-64 m-2 rounded-lg">
+        <div id="form-bucket" class="bg-gray-400">
+          <!-- add form here plz -->
+          <!-- search term input form -->
+          <form>
+            <input type="text" placeholder="Search Term" />
+            <button type="submit">Search</button>
+          </form>
+          <!-- genre select form -->
+          <form>
+            Movie Genre:
+            <select id="genreselect">
+              <option>Action</option>
+              <option>Comedy</option>
+              <option>Romance</option>
+              <option>Drama</option>
+              <option>Documentary</option>
+            </select>
+          </form>
+          <!-- movie rating select form -->
+          <form>
+            Movie Rating:
+            <select id="ratingselect">
+              <option>G</option>
+              <option>PG</option>
+              <option>PG-13</option>
+              <option>R</option>
+            </select>
+          </form>
+          <!-- actor/actress select form -->
+          <form>
+            <input type="text" placeholder="Name of Actor/Actress" />
+            <button type="submit">Search</button>
+          </form>
+          <!-- wine select form -->
+          <form>
+            Wine Type:
+            <select id="wineselect">
+              <option>Red</option>
+              <option>White</option>
+              <option>Either</option>
+            </select>
+          </form>
+        </div>
+      </section>
     </main>
 
-    <script src='./assets/js/script.js'></script>
-</body>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

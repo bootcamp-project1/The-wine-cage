@@ -1,26 +1,28 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
 }
 
 /* header styling starts here */
 #header {
-    font-family: 'Mr Dafoe', sans-serif;
-    display: flex;
-    height: calc(3vh + 4rem);
-    overflow: hidden;
-    align-items: center;
-    justify-content: center;
-    position: -webkit-sticky;
-    position: sticky;
-    width: 100%;
+  font-family: "Mr Dafoe", sans-serif;
+  display: flex;
+  height: calc(3vh + 4rem);
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
 }
 
 #header nav {
-    font-family: 'Exo 2', sans-serif;;
+  font-family: "Exo 2", sans-serif;
 }
 /* header styling ends here */
+
+/* search form style start*/
