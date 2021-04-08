@@ -34,3 +34,10 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+/* footer style start */
+#footer {
+  height: 3em;
+  background-image: url("./assets/images/moviedb.png.svg");
+  background-color: grey;
+}
