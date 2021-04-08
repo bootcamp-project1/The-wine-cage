@@ -51,49 +51,62 @@
         </article>
       </section>
 
-      <section id="search" class="bg-gray-300 w-64 h-64 m-2 rounded-lg">
+      <section id="search" class="bg-gray-300 w-89 h-140 m-2 rounded-lg">
         <div id="form-bucket" class="bg-gray-400">
           <!-- add form here plz -->
-          <!-- search term input form -->
-          <form>
-            <input type="text" placeholder="Search Term" />
-            <button type="submit">Search</button>
-          </form>
-          <!-- genre select form -->
-          <form>
-            Movie Genre:
-            <select id="genreselect">
+          <div class="p-8 bg-purple-900">
+            <div class="bg-white flex items-center rounded-full shadow-xl">
+              <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search Term">
+              <div class="p-4">
+                <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
+                  Search
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- movie genre select form -->
+          <label class="block bg-purple-200">
+            <span class="text-gray-500 bg">Movie Genre:</span>
+            <select class="form-select block w-full mt-1">
               <option>Action</option>
               <option>Comedy</option>
               <option>Romance</option>
               <option>Drama</option>
               <option>Documentary</option>
             </select>
-          </form>
-          <!-- movie rating select form -->
-          <form>
-            Movie Rating:
-            <select id="ratingselect">
+          </label>
+          <!-- actor/actress select form -->
+          <label class="block bg-purple-200">
+            <span class="text-gray-500">Movie Rating:</span>
+            <select class="form-select block w-full mt-1">
               <option>G</option>
               <option>PG</option>
               <option>PG-13</option>
               <option>R</option>
             </select>
-          </form>
-          <!-- actor/actress select form -->
-          <form>
-            <input type="text" placeholder="Name of Actor/Actress" />
-            <button type="submit">Search</button>
-          </form>
-          <!-- wine select form -->
-          <form>
-            Wine Type:
-            <select id="wineselect">
+          </label>
+          <!-- wine choice select form: -->
+          <label class="block bg-purple-200">
+            <span class="text-gray-500">Type of Wine:</span>
+            <select class="form-select block w-full mt-1">
               <option>Red</option>
               <option>White</option>
-              <option>Either</option>
+              <option>Both</option>
             </select>
-          </form>
+          </label>
+          <!-- actor/actress search form -->
+          <div class="p-8 bg-purple-900">
+            <div class="bg-white flex items-center rounded-full shadow-xl">
+              <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Actor/Actress">
+              <div class="p-4">
+                <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
+                  Search
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
