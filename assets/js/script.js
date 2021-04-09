@@ -18,12 +18,9 @@ var captureSearch = function(){
 }
 searchButton.addEventListener("click", captureSearch)
 
-<<<<<<< HEAD
 
 
-=======
 fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=a9af3d76ab984d298de29d4837c5c9d1')
 .then(response => response.json())
 .then(data => console.log(data))
 .catch(err => console.error(err));
->>>>>>> feature/recipe-api
