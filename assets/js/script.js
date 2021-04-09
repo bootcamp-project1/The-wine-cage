@@ -11,12 +11,23 @@
 //variable for input
 var searchInput = document.getElementById("searchMovie");
 var searchInputVal = searchInput.value;
+
+//variable for select menus
+// var genreSelect = 
+
+
 //variable for button press to search
 var searchButton = document.getElementById("searchMovieBtn");
 
 // fetch from TMDB with a search term
 var searchMovieDatabase = function(){
 	var searchInputVal = searchInput.value;
+    //get movie genre value when the search button is clicked
+    var movieGenre = document.getElementById("movieGenre").value;
+    console.log(movieGenre);
+    // get movie rating when search button is clicked
+    var movieRating = document.getElementById("movieRating").value
+    console.log(movieRating)
 	fetch('https://api.themoviedb.org/3/search/movie?api_key=9e2d992d8fb0f9588f0d380dff3225e8&query=' + searchInputVal)
 	.then(response => {
 		console.log(response);
