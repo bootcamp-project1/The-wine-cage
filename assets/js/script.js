@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Write a fetch request 
 // console.log(fetch("https://rapidapi.com/edamam/api/edamam-food-and-grocery-database")) 
 //     .then(response => response.json())
@@ -6,6 +5,11 @@
 //     .then(data => console.log(data))
 //     .catch(erro => console.log("error"))
 
+//variable for input
+var searchInput = document.getElementById("searchMovie");
+var searchInputVal = searchInput.value;
+//variable for button press to search
+var searchButton = document.getElementById("searchMovieBtn");
 
 //created fetch request that works based on query search
 //will use vote-average to compare to wine 
@@ -26,7 +30,6 @@ var captureSearch = function(){
 		
 }
 searchButton.addEventListener("click", captureSearch)
-=======
 //created fetch request that works based on query search
 //will use vote-average to compare to wine 
 
@@ -37,16 +40,10 @@ searchButton.addEventListener("click", captureSearch)
 //.catch(err => {
 //	console.error(err);
 //});
-//variable for input
-var searchInput = document.getElementById("searchMovie");
-var searchInputVal = searchInput.value;
+
 
 //variable for select menus
 // var genreSelect = 
-
-
-//variable for button press to search
-var searchButton = document.getElementById("searchMovieBtn");
 
 // fetch from TMDB with a search term
 var searchMovieDatabase = function(){
@@ -91,4 +88,3 @@ fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${
 .catch(err => {
 	console.error(err);
 });
->>>>>>> c457672edd1bdc2668eaa04154eafd8ef34805b3
