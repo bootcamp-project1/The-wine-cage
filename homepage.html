@@ -1,37 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mr+Dafoe" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Mr+Dafoe"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Exo+2"
+    />
     <title>Cage & Wine</title>
-</head>
-<body class='bg-gray-900'>
-    <header id='header' class='bg-purple-900 flex flex-grow w-full text-gray-300'>
-        <div class='flex-grow'><!-- spaceholder -->&nbsp;</div>
-        <h1 class='text-6xl flex-grow p-2 block'>Cage & Wine</h1>
-        <nav class='p-4 hidden sm:block'>
-            <a href="#random" class='p-1 m-1 border-b-2 border-gray-00'>random</a>
-            <a href="#about" class='p-1 m-1 border-b-2 border-gray-00'>about</a>
-            <a href="#contact" class='p-1 m-1 border-b-2 border-gray-00'>contact</a>
-        </nav>
+  </head>
+  <body class="bg-gray-900">
+    <header
+      id="header"
+      class="bg-purple-900 flex flex-grow w-full text-gray-300"
+    >
+      <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
+      <h1 class="text-6xl flex-grow p-2 block">Cage & Wine</h1>
+      <nav class="p-4 hidden sm:block">
+        <a href="#random" class="p-1 m-1 border-b-2 border-gray-00">random</a>
+        <a href="#about" class="p-1 m-1 border-b-2 border-gray-00">about</a>
+        <a href="#contact" class="p-1 m-1 border-b-2 border-gray-00">contact</a>
+      </nav>
     </header>
-    <main class='p-2 m-4 flex justify-center'>
-        <section id="pairing-results" class='bg-gray-300 rounded-lg w-96 h-64 m-2 flex justify-center content-center'>
-            <article id="movie" class='self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1'>movie</article>
-            <article id="wine" class='self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1'>wine</article>
-        </section>
-        <section id="search" class='bg-gray-300 w-64 h-64 m-2 rounded-lg'>
-            <div id='form-bucket' class='bg-gray-400'>
-                <!-- add form here plz -->
-            </div>
-        </section>
-    </main>
+    <main class="p-2 m-4 flex justify-center">
+      <section
+        id="pairing-results"
+        class="bg-gray-300 rounded-lg w-96 h-64 m-2 flex justify-center content-center"
+      >
+        <article
+          id="movie"
+          class="self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1"
+        >
+          movie
+        </article>
+        <article
+          id="wine"
+          class="self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1"
+        >
+          wine
+        </article>
+      </section>
 
-    <script src='./assets/js/script.js'></script>
-</body>
+      <section id="search" class="bg-gray-300 w-89 h-140 m-2 rounded-lg">
+        <div id="form-bucket" class="bg-gray-400">
+          <!-- add form here plz -->
+          <div class="p-8 bg-purple-900">
+            <div class="bg-white flex items-center rounded-full shadow-xl">
+              <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search Term">
+              <div class="p-4">
+                <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
+                  Search
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- movie genre select form -->
+          <label class="block bg-purple-200">
+            <span class="text-gray-500 bg">Movie Genre:</span>
+            <select class="form-select block w-full mt-1">
+              <option>Action</option>
+              <option>Comedy</option>
+              <option>Romance</option>
+              <option>Drama</option>
+              <option>Documentary</option>
+            </select>
+          </label>
+          <!-- actor/actress select form -->
+          <label class="block bg-purple-200">
+            <span class="text-gray-500">Movie Rating:</span>
+            <select class="form-select block w-full mt-1">
+              <option>G</option>
+              <option>PG</option>
+              <option>PG-13</option>
+              <option>R</option>
+            </select>
+          </label>
+          <!-- wine choice select form: -->
+          <label class="block bg-purple-200">
+            <span class="text-gray-500">Type of Wine:</span>
+            <select class="form-select block w-full mt-1">
+              <option>Red</option>
+              <option>White</option>
+              <option>Both</option>
+            </select>
+          </label>
+          <!-- actor/actress search form -->
+          <div class="p-8 bg-purple-900">
+            <div class="bg-white flex items-center rounded-full shadow-xl">
+              <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Actor/Actress">
+              <div class="p-4">
+                <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
+                  Search
+                </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+        <p>Brought to you by:</p>
+    </footer>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
