@@ -38,6 +38,5 @@ body {
 /* footer style start */
 #footer {
   height: 3em;
-  background-image: url("./assets/images/moviedb.png.svg");
-  background-color: grey;
+  background-image: url("./assets/images/moviedb.svg");
 }
