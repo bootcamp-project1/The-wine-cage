@@ -1,36 +1,32 @@
 
 //variable for input
-var searchInput = document.getElementById("searchMovie");
-var searchInputVal = searchInput.value;
+const searchInput = document.getElementById("searchMovie");
+const searchInputVal = searchInput.value;
 //variable for button press to search
-var searchButton = document.getElementById("searchMovieBtn");
+const searchButton = document.getElementById("searchMovieBtn");
 //variable for movie poster
-moviePosterHolder = document.getElementById("moviePoster")
+const moviePosterHolder = document.getElementById("moviePoster");
 
 //variable for select menus
 // var genreSelect = 
 
 // fetch from TMDB with a search term
-var searchMovieDatabase = function(){
-	var searchInputVal = searchInput.value;
+const searchMovieDatabase = function(){
+	let searchInputVal = searchInput.value;
     //get movie genre value when the search button is clicked
-    var movieGenre = document.getElementById("movieGenre").value;
-    console.log(movieGenre);
+    let movieGenre = document.getElementById("movieGenre").value;
     // get movie rating when search button is clicked
-    var movieRating = document.getElementById("movieRating").value
+    let movieRating = document.getElementById("movieRating").value;
     console.log(movieRating)
-	//variable for the movie database API
-	var movieApi = 'https://api.themoviedb.org/3/search/movie?api_key=9e2d992d8fb0f9588f0d380dff3225e8&query=';
-	var returnData 
-	var response = fetch(movieApi + searchInputVal)
-	.then(function(response){
-		return response.json()
-	})
-	.then(function(data){
+	//letiable for the movie database API
+	let movieApi = 'https://api.themoviedb.org/3/search/movie?api_key=9e2d992d8fb0f9588f0d380dff3225e8&query=zombies';
+	let response = fetch(movieApi + searchInputVal)
+	.then((response) => response.json())
+	.then((data) => {
 		console.log(data);
-		returnData = data;
-		console.log(returnData)
-		var moviePoster = "https://image.tmdb.org/t/p/w500" + data.results[0].poster_path;
+		let moviePoster = `https://image.tmdb.org/t/p/w500%${data.results[0].poster_path}`;
+		// clear out the old pic
+		console.log(moviePosterHolder);
 		moviePosterHolder.innerHTML = `<img src= '${moviePoster}' />`;
 		console.log(moviePoster)
 	})
