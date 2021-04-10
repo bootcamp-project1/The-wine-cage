@@ -2,10 +2,10 @@
   margin: 0;
   padding: 0;
   --oreoDark: #272425;
-  --oreoMid: #6C6463;
-  --oreoLight: #BBBCBC;
+  --oreoMid: #6c6463;
+  --oreoLight: #bbbcbc;
   --oreoBlue: #003087;
-  --oreoLightBlue: #7CC6F2;
+  --oreoLightBlue: #7cc6f2;
 }
 
 body {
@@ -70,6 +70,7 @@ body {
 }
 /* background colors section end */
 
+
 /* font color  sections start */
 .text-oreoDark {
   color: var(--oreoDark);
@@ -91,3 +92,5 @@ body {
   color: var(--oreoLightBlue);
 }
 /* font color section end  */
+
+
