@@ -1,6 +1,11 @@
 * {
   margin: 0;
   padding: 0;
+  --oreoDark: #272425;
+  --oreoMid: #6C6463;
+  --oreoLight: #BBBCBC;
+  --oreoBlue: #003087;
+  --oreoLightBlue: #7CC6F2;
 }
 
 body {
@@ -42,3 +47,25 @@ body {
   background: rgb(110, 34, 110);
   background-image: url("/assets/images/moviedb.svg");
 }
+
+/* background colors section start */
+.bg-oreoDark {
+  background-color: var(--oreoDark);
+}
+
+.bg-oreoMid {
+  background-color: var(--oreoMid {);
+}
+
+.bg-oreoLight {
+  background-color: var(--oreoLight);
+}
+
+.bg-oreoBlue {
+  background-color: var(--oreoBlue);
+}
+
+.bg-oreoLightBlue {
+  background-color: var(--oreoLightBlue);
+}
+/* background colors section end */
