@@ -5,7 +5,7 @@ var searchInputVal = searchInput.value;
 //variable for button press to search
 var searchButton = document.getElementById("searchMovieBtn");
 //variable for movie poster
-moviePoster = document.getElementById("moviePoster")
+moviePosterHolder = document.getElementById("moviePoster")
 
 //variable for select menus
 // var genreSelect = 
@@ -19,15 +19,31 @@ var searchMovieDatabase = function(){
     // get movie rating when search button is clicked
     var movieRating = document.getElementById("movieRating").value
     console.log(movieRating)
-	fetch('https://api.themoviedb.org/3/search/movie?api_key=9e2d992d8fb0f9588f0d380dff3225e8&query=' + searchInputVal)
-	.then(response => {
-		var date = JSON.parse(response)
-		console.log(response);
-	
+	//variable for the movie database API
+	var movieApi = 'https://api.themoviedb.org/3/search/movie?api_key=9e2d992d8fb0f9588f0d380dff3225e8&query=';
+	var returnData 
+	var response = fetch(movieApi + searchInputVal)
+	.then(function(response){
+		return response.json()
 	})
-	.catch(err => {
-		console.error(err);
-	});
+	.then(function(data){
+		console.log(data);
+		returnData = data;
+		console.log(returnData)
+		var moviePoster = "https://image.tmdb.org/t/p/w500" + data.results[0].poster_path;
+		moviePosterHolder.innerHTML = moviePoster;
+		console.log(moviePoster)
+	})
+	
+
+	// .then(response => {
+	// 	var data = JSON.parse(movieApi + searchInputVal)
+	// 	console.log(data);
+	
+	// })
+	// .catch(err => {
+	// 	console.error(err);
+	// });
 
 }
 
