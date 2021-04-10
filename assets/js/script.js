@@ -4,6 +4,8 @@ var searchInput = document.getElementById("searchMovie");
 var searchInputVal = searchInput.value;
 //variable for button press to search
 var searchButton = document.getElementById("searchMovieBtn");
+//variable for movie poster
+moviePoster = document.getElementById("moviePoster")
 
 //variable for select menus
 // var genreSelect = 
@@ -19,11 +21,14 @@ var searchMovieDatabase = function(){
     console.log(movieRating)
 	fetch('https://api.themoviedb.org/3/search/movie?api_key=9e2d992d8fb0f9588f0d380dff3225e8&query=' + searchInputVal)
 	.then(response => {
+		var date = JSON.parse(response)
 		console.log(response);
+	
 	})
 	.catch(err => {
 		console.error(err);
 	});
+
 }
 
 searchButton.addEventListener("click", searchMovieDatabase)
