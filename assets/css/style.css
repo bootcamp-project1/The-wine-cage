@@ -37,7 +37,7 @@ body {
 
 /* footer style start */
 .footer {
-  width: 50%;
+  width: 100%;
   padding: 15px;
   background: rgb(110, 34, 110);
   background-image: url("/assets/images/moviedb.svg");
