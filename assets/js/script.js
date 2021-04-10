@@ -31,7 +31,7 @@ var searchMovieDatabase = function(){
 		returnData = data;
 		console.log(returnData)
 		var moviePoster = "https://image.tmdb.org/t/p/w500" + data.results[0].poster_path;
-		moviePosterHolder.innerHTML = moviePoster;
+		moviePosterHolder.innerHTML = `<img src= '${moviePoster}' />`;
 		console.log(moviePoster)
 	})
 	
