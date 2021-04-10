@@ -17,57 +17,62 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Exo+2"
     />
-    <title>Cage & Wine</title>
+    <title>Snackolas Cage</title>
   </head>
-  <body class="bg-gray-900">
+  <body class="bg-oreoDark">
     <header
       id="header"
-      class="bg-purple-900 flex flex-grow w-full text-gray-300"
+      class="bg-oreoLight flex flex-grow w-full text-gray-300"
     >
       <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
-      <h1 class="text-6xl flex-grow p-2 block">Cage & Wine</h1>
+      <h1 class="text-6xl flex-grow p-2 block text-oreoDark">Snackolas Cage</h1>
       <nav class="p-4 hidden sm:block">
-        <a href="#random" class="p-1 m-1 border-b-2 border-gray-00">random</a>
-        <a href="#about" class="p-1 m-1 border-b-2 border-gray-00">about</a>
-        <a href="#contact" class="p-1 m-1 border-b-2 border-gray-00">contact</a>
+        <a href="#random" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">random</a>
+        <a href="#about" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">about</a>
+        <a href="#contact" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
       </nav>
     </header>
     <main class="p-2 m-4 flex justify-center">
       <section
         id="pairing-results"
-        class="bg-gray-300 rounded-lg w-96 h-64 m-2 flex justify-center content-center"
+        class="bg-oreoLightBlue rounded-lg m-8 p-1 flex justify-center align-center"
       >
         <article
+
+          id="movie"
+          class="inline-block self-center rounded flex-grow w-auto m-1 p-1 bg-oreoDark"
+
           id="moviePoster"
           class="self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1"
+
         >
-          movie
+          <img src="https://via.placeholder.com/200x300" alt="">
         </article>
         <article
           id="wine"
-          class="self-center rounded flex-grow w-auto h-60 bg-gray-800 m-1 p-1"
+          class="inline-block self-center rounded flex-grow w-auto m-1 p-1 bg-oreoDark"
         >
-          wine
+          <img src="https://via.placeholder.com/200x300" alt="">
         </article>
       </section>
 
-      <section id="search" class="bg-gray-300 w-89 h-140 m-2 rounded-lg">
-        <div id="form-bucket" class="bg-gray-400">
+      <section id="search" class="m-2 rounded-lg border-2 bg-oreoLightBlue">
+        <div id="form-bucket" class="bg-oreoBlue rounded-xl">
           <!-- add form here plz -->
-          <div class="p-8 bg-purple-900">
-            <div class="bg-white flex items-center rounded-full shadow-xl">
-              <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="searchMovie" type="text" placeholder="Search Term">
-              <div class="p-4">
-                <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center" id="searchMovieBtn">
-                  Search
-                </button>
+          <div class="p-3 bg-oreoLightBlue rounded">
+            <div class="bg-white flex items-center rounded-lg shadow-xl">
+              <input class="rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="searchMovie" type="text" placeholder="Search Term">
+                <div class="p-2">
+                  <button class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" id="searchMovieBtn">
+                    search
+                  </button>
                 </div>
               </div>
             </div>
           </div>
           <!-- movie genre select form -->
-          <label class="block bg-purple-200">
-            <span class="text-gray-500 bg">Movie Genre:</span>
+          <label class="m-2 block bg-oreoBlue rounded text-center">
+            <span class="text-oreoLight text-center">movie genre</span>
             <select class="form-select block w-full mt-1" id="movieGenre">
               <option>Action</option>
               <option>Comedy</option>
@@ -77,8 +82,8 @@
             </select>
           </label>
           <!-- actor/actress select form -->
-          <label class="block bg-purple-200">
-            <span class="text-gray-500">Movie Rating:</span>
+          <label class="m-2 block bg-oreoBlue rounded text-center">
+            <span class="text-oreoLight text-center">movie rating</span>
             <select class="form-select block w-full mt-1" id="movieRating">
               <option>G</option>
               <option>PG</option>
@@ -87,21 +92,21 @@
             </select>
           </label>
           <!-- wine choice select form: -->
-          <label class="block bg-purple-200">
-            <span class="text-gray-500">Type of Wine:</span>
+          <label class="m-2 block bg-oreoBlue rounded text-center">
+            <span class="text-oreoLight text-center">snackies</span>
             <select class="form-select block w-full mt-1">
-              <option>Red</option>
-              <option>White</option>
-              <option>Both</option>
+              <option>savory</option>
+              <option>sweet</option>
+              <option>tasty</option>
             </select>
           </label>
           <!-- actor/actress search form -->
-          <div class="p-8 bg-purple-900">
-            <div class="bg-white flex items-center rounded-full shadow-xl">
-              <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="searchActor" type="text" placeholder="Actor/Actress">
-              <div class="p-4">
-                <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center" id="searchActorBtn">
-                  Search
+          <div class="p-3 bg-oreoLightBlue rounded">
+            <div class="bg-white flex items-center rounded-lg shadow-xl">
+              <input class="rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="searchActor" type="text" placeholder="Actor/Actress">
+              <div class="p-2">
+                <button class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" id="searchActorBtn">
+                  search
                 </button>
                 </div>
               </div>
@@ -110,10 +115,6 @@
         </div>
       </section>
     </main>
-    <footer id="footer" class="footer">
-        <p>Brought to you by:</p>
-    </footer>
-
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
