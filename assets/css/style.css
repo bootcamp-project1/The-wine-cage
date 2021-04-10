@@ -54,7 +54,7 @@ body {
 }
 
 .bg-oreoMid {
-  background-color: var(--oreoMid {);
+  background-color: var(--oreoMid);
 }
 
 .bg-oreoLight {
@@ -69,3 +69,25 @@ body {
   background-color: var(--oreoLightBlue);
 }
 /* background colors section end */
+
+/* font color  sections start */
+.text-oreoDark {
+  color: var(--oreoDark);
+}
+
+.text-oreoMid {
+  color: var(--oreoMid);
+}
+
+.text-oreoLight {
+  color: var(--oreoLight);
+}
+
+.text-oreoBlue {
+  color: var(--oreoBlue);
+}
+
+.text-oreoLightBlue {
+  color: var(--oreoLightBlue);
+}
+/* font color section end  */
