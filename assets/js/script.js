@@ -22,17 +22,28 @@ const searchMovieDatabase = function(){
 	fetch(movieApi)
 		.then((response) => response.json())
 		.then((data) => {
-			// turn 
-			let hotList = [];
+			// an empty array to hold list of ratings
+			let ratings = [];
 			// append values to the list
 			data.results.forEach((hot, index) => {
-				hotList.push(parseInt(`${data.results[index].popularity})`))
+				ratings.push(parseInt(`${data.results[index].popularity})`))
 			})
-			// sort the list from most to least
-			hotList.sort((a, b) => b - a);
-			console.log(hotList);
+			// go through the list, removing values over the selected option
+			ratings.forEach((rating, index) => {
+				if (rating > moviePopularity) {
+					ratings.shift();
+				}
+			})
+			// make a list of movie options, use ratings.length to shorten the list up
+			let movies = data.results;
+			console.log(movies);
 
-			// render the movie poster image
+			// sort the list from most to least
+			ratings.sort((a, b) => b - a);
+			console.log(ratings);
+
+			
+			// render the movie poster image according to the option selected
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
 			moviePosterHolder.style.width = '200px';
