@@ -35,16 +35,6 @@ var searchMovieDatabase = function(){
 		moviePosterHolder.style.width = "200px";
 		//console.log(moviePoster)
 	})
-	
-
-	// .then(response => {
-	// 	var data = JSON.parse(movieApi + searchInputVal)
-	// 	console.log(data);
-	
-	// })
-	// .catch(err => {
-	// 	console.error(err);
-	// });
 
 }
 
@@ -67,3 +57,4 @@ fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${
 .catch(err => {
 	console.error(err);
 });
+
