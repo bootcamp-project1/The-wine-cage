@@ -9,6 +9,20 @@ const moviePosterHolder = document.getElementById("moviePoster");
 const TMDBapiKey = `9e2d992d8fb0f9588f0d380dff3225e8`;
 const nicCageID = '2963';
 
+
+//saving searches to an array
+let searchArray = []
+//saving user search to local storage
+	const saveToLocalStorage = function(){
+		 let searchInputVal = searchInput.value;
+		let currentSearch = localStorage.setItem(searchInputVal, searchInputVal);
+		searchArray.push(currentSearch)
+	}
+console.log(searchArray)
+
+
+
+
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
 	let searchInputVal = searchInput.value;
@@ -29,6 +43,7 @@ const searchMovieDatabase = function(){
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
 			moviePosterHolder.style.width = '500px';
+			saveToLocalStorage();
 		})
 }
 
