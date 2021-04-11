@@ -2,7 +2,8 @@
 const searchInput = document.getElementById("searchMovie");
 const searchInputVal = searchInput.value;
 //variable for button press to search
-const searchButton = document.getElementById("searchMovieBtn");
+const searchButton = document.getElementById("searchBtn");
+const searchActor = document.getElementById("searchActor")
 //variable for movie poster
 const moviePosterHolder = document.getElementById("moviePoster");
 const TMDBapiKey = `9e2d992d8fb0f9588f0d380dff3225e8`;
@@ -20,7 +21,7 @@ const searchMovieDatabase = function(){
 	fetch(movieApi)
 		.then((response) => response.json())
 		.then((data) => {
-			// an empty array to hold list of movies
+			// an array to hold list of movies
 			let movies = data.results;
 			// sort the list from most to least
 			movies = popularityChecker(movies, moviePopularity);
@@ -30,8 +31,6 @@ const searchMovieDatabase = function(){
 			moviePosterHolder.style.width = '500px';
 		})
 }
-
-searchMovieBtn.addEventListener("click", searchMovieDatabase)
 
 // // grab the recipe responses from  spoonacular
 // fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=a9af3d76ab984d298de29d4837c5c9d1')
@@ -43,7 +42,7 @@ searchMovieBtn.addEventListener("click", searchMovieDatabase)
 
 // TMDB api fetch here, searches by actor ID number
 
-const nicolasCager = (actor) => {
+const nicolasCager = () => {
 	let moviePopularity = document.getElementById("movieRating").value;
 	fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${TMDBapiKey}`)
 		.then((response) => response.json())
@@ -70,4 +69,16 @@ const popularityChecker = (movies, pop) => {
 	return movies;
 }
 
-searchActorBtn.addEventListener("click", nicolasCager);
+const buttonHandler = (e) => {
+	e.preventDefault();
+	// if search for actor input is empty, search by the search terms
+	console.log(searchActor.value)
+	if (searchActor.value === '') {
+		searchMovieDatabase();
+	} else { // if someone tries searching for an actor, nic cage em
+		nicolasCager();
+	}
+
+}
+
+searchButton.addEventListener("click", buttonHandler);
