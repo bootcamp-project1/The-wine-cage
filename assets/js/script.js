@@ -23,7 +23,8 @@ const searchMovieDatabase = function(){
 			// an empty array to hold list of movies
 			let movies = data.results;
 			// sort the list from most to least
-			movies = popularityChecker(movies, moviePopularity);
+			//commented out popularity checker for testing purposes
+			//movies = popularityChecker(movies, moviePopularity);
 			// render the movie poster image according to the option selected
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
@@ -32,13 +33,16 @@ const searchMovieDatabase = function(){
 }
 
 searchMovieBtn.addEventListener("click", searchMovieDatabase)
+searchMovieBtn.addEventListener("click", searchRecipeDatabase)
 
-// // grab the recipe responses from  spoonacular
+const searchRecipeDatabase = function() {
+// grab the recipe responses from  spoonacular
 // fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=a9af3d76ab984d298de29d4837c5c9d1')
 // .then(response => response.json())
 // .then(data => console.log(data))
 // .catch(err => console.error(err));
-
+console.log(searchRecipeDatabase)
+}
 // some variables for the TMDB search by actor ID, returns list of nic cage films
 
 // TMDB api fetch here, searches by actor ID number
