@@ -30,8 +30,12 @@ body {
 }
 /* header styling ends here */
 
-/* search form style start*/
+/* results form styling start */
+#pairing-results article {
+  border: 3px solid var(--oreoMid)
+}
 
+/* search form style start*/
 .bg-gray-400 {
   padding: 1px;
   display: flex;
