@@ -23,13 +23,7 @@ const searchMovieDatabase = function(){
 			// an empty array to hold list of movies
 			let movies = data.results;
 			// sort the list from most to least
-			movies.sort((a, b) => b.popularity - a.popularity);
-			// go through the list, removing movies over the selected popularity option
-			movies.forEach((movie, index) => {
-				if (movie.popularity > moviePopularity) {
-					movies.shift();
-				}
-			})
+			movies = popularityChecker(movies, moviePopularity);
 			// render the movie poster image according to the option selected
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
@@ -55,14 +49,7 @@ const nicolasCager = (actor) => {
 		.then((response) => response.json())
 		.then((data) => {
 			let movies = data.cast;
-			movies.sort((a, b) => b.popularity - a.popularity);
-			// go through the list, removing movies over the selected popularity option
-			movies.forEach((movie, index) => {
-				if (movie.popularity > moviePopularity) {
-					movies.shift();
-				}
-			})
-			console.log(movies)
+			movies = popularityChecker(movies, moviePopularity);
 			moviePosterUrl = "https://image.tmdb.org/t/p/w500" + data.cast[Math.floor(Math.random()*data.cast.length)].poster_path;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
 			moviePosterHolder.style.width = '500px';
@@ -70,6 +57,17 @@ const nicolasCager = (actor) => {
 		.catch(err => {
 			console.error(err);
 		});
+}
+
+const popularityChecker = (movies, pop) => {
+	movies.sort((a, b) => b.popularity - a.popularity);
+	// go through the list, removing movies over the selected popularity option
+	movies.forEach((movie, index) => {
+		if (movie.popularity > pop) {
+			movies.shift();
+		}
+	})
+	return movies;
 }
 
 searchActorBtn.addEventListener("click", nicolasCager);
