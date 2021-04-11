@@ -20,9 +20,7 @@
     <title>The Wine Cage</title>
   </head>
   <body class="bg-oreoDark">
-    <header
-      id="header"
-      class="bg-oreoLight flex flex-grow w-full text-gray-300"
+    <header id="header" class="bg-oreoLight flex flex-row flex-grow w-full space-around text-gray-300"
     >
       <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
       <h1 class="text-6xl flex-grow p-2 block text-oreoDark">The Wine Cage</h1>
@@ -32,7 +30,7 @@
         <a href="#contact" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
       </nav>
     </header>
-    <main class="p-2 m-4 flex justify-center">
+    <main class="p-2 m-4 flex flex-col-reverse justify-center align-center">
       <section
         id="pairing-results"
         class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center"
@@ -41,7 +39,7 @@
           id="moviePoster"
           class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark"
         >
-          <img src="https://via.placeholder.com/300x500" alt="">
+          <img src="https://via.placeholder.com/300x500" alt="" />
         </article>
         <article
           id="wine"
@@ -52,33 +50,40 @@
         </article>
       </section>
 
-      <section id="search" class="rounded-xl m-4 flex">
-        <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0">
+      <section id="search" class="rounded-xl m-4 flex self-center">
+        <form
+          id="form-bucket"
+          class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0"
+        >
           <!-- movie search term -->
           <div class="p-1 m-1 bg-oreoLightBlue rounded">
             <div class="bg-white flex items-center rounded-lg shadow-xl">
-              <input class="rounded-full w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none" 
+              <input
+                class="rounded-full w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none"
                 id="searchMovie"
                 type="text"
                 placeholder="search"
-                value='independence'
-              >
+                value="independence"
+              />
             </div>
           </div>
           <!-- actor search -->
           <div class="p-1 m-1 bg-oreoLightBlue rounded">
             <div class="bg-white flex items-center rounded-lg shadow-xl">
-              <input class="rounded-full w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none"
-                id="searchActor" 
-                type="text" 
+              <input
+                class="rounded-full w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none"
+                id="searchActor"
+                type="text"
                 placeholder="actor (optional)"
-              >
+              />
             </div>
           </div>
           <!-- movie genre select -->
-          <div class='bg-oreoLightBlue rounded m-1'>
+          <div class="bg-oreoLightBlue rounded m-1">
             <label class="m-2 block bg-oreoDark rounded text-center">
-              <span class="text-oreoLight text-center block whitespace-nowrap">------ movie genre ------</span>
+              <span class="text-oreoLight text-center block whitespace-nowrap"
+                >------ movie genre ------</span
+              >
               <select class="form-select block w-full mt-1" id="movieGenre">
                 <option>Action</option>
                 <option>Comedy</option>
@@ -89,22 +94,24 @@
             </label>
           </div>
           <!-- TMDB popularity rating -->
-          <div class='bg-oreoLightBlue rounded m-1'>
+          <div class="bg-oreoLightBlue rounded m-1">
             <label class="m-2 block bg-oreoDark rounded text-center">
-              <span class="text-oreoLight text-center block whitespace-nowrap">------- what's hot -------</span>
+              <span class="text-oreoLight text-center block whitespace-nowrap"
+                >------- what's hot -------</span
+              >
               <select class="form-select block w-full mt-1" id="movieRating">
-                <option value='100000' selected disabled hidden>bet</option>
-                <option value='100000'>Highest popularity</option>
-                <option value='1000'>Pretty sweet</option>
-                <option value='500'>Fairly popular</option>
-                <option value='100'>Middle ground</option>
-                <option value='20'>Less popular</option>
-                <option value='5'>Least popular</option>
+                <option value="100000" selected disabled hidden>bet</option>
+                <option value="100000">Highest popularity</option>
+                <option value="1000">Pretty sweet</option>
+                <option value="500">Fairly popular</option>
+                <option value="100">Middle ground</option>
+                <option value="20">Less popular</option>
+                <option value="5">Least popular</option>
               </select>
             </label>
           </div>
           <!-- snack options select form -->
-          <div class='bg-oreoLightBlue rounded m-1'>
+          <div class="bg-oreoLightBlue rounded m-1">
             <label class="m-2 block bg-oreoDark rounded text-center">
               <span class="text-oreoLight text-center block whitespace-nowrap">-------- wine type --------</span>
               <select class="form-select block w-full mt-1" id="wineSelect">
@@ -116,7 +123,10 @@
           </div>
           <!-- search button goes here -->
           <div class="w-auto flex justify-center">
-            <button id="searchBtn" class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center">
+            <button
+              id="searchBtn"
+              class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center"
+            >
               search
             </button>
           </div>
