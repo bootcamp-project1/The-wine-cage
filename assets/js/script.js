@@ -7,6 +7,8 @@ const searchButton = document.getElementById("searchMovieBtn");
 const moviePosterHolder = document.getElementById("moviePoster");
 const TMDBapiKey = `9e2d992d8fb0f9588f0d380dff3225e8`;
 const nicCageID = '2963';
+//const snackVar = getElementById("snackchoice")
+const spoonacularKey = `a9af3d76ab984d298de29d4837c5c9d1`
 
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
@@ -33,45 +35,47 @@ const searchMovieDatabase = function(){
 }
 
 searchMovieBtn.addEventListener("click", searchMovieDatabase)
-searchMovieBtn.addEventListener("click", searchRecipeDatabase)
+
 
 const searchRecipeDatabase = function() {
-// grab the recipe responses from  spoonacular
-// fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=a9af3d76ab984d298de29d4837c5c9d1')
-// .then(response => response.json())
-// .then(data => console.log(data))
-// .catch(err => console.error(err));
-console.log(searchRecipeDatabase)
+//grab the recipe responses from  spoonacular
+fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=a9af3d76ab984d298de29d4837c5c9d1')
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(err => console.error(err));
+//console.log(searchRecipeDatabase)
 }
+
+searchMovieBtn.addEventListener("click", searchRecipeDatabase)
 // some variables for the TMDB search by actor ID, returns list of nic cage films
 
 // TMDB api fetch here, searches by actor ID number
 
-const nicolasCager = (actor) => {
-	let moviePopularity = document.getElementById("movieRating").value;
-	fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${TMDBapiKey}`)
-		.then((response) => response.json())
-		.then((data) => {
-			let movies = data.cast;
-			movies = popularityChecker(movies, moviePopularity);
-			moviePosterUrl = "https://image.tmdb.org/t/p/w500" + data.cast[Math.floor(Math.random()*data.cast.length)].poster_path;
-			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
-			moviePosterHolder.style.width = '500px';
-		})
-		.catch(err => {
-			console.error(err);
-		});
-}
+// const nicolasCager = (actor) => {
+// 	let moviePopularity = document.getElementById("movieRating").value;
+// 	fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${TMDBapiKey}`)
+// 		.then((response) => response.json())
+// 		.then((data) => {
+// 			let movies = data.cast;
+// 			movies = popularityChecker(movies, moviePopularity);
+// 			moviePosterUrl = "https://image.tmdb.org/t/p/w500" + data.cast[Math.floor(Math.random()*data.cast.length)].poster_path;
+// 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
+// 			moviePosterHolder.style.width = '500px';
+// 		})
+// 		.catch(err => {
+// 			console.error(err);
+// 		});
+// }
 
-const popularityChecker = (movies, pop) => {
-	movies.sort((a, b) => b.popularity - a.popularity);
-	// go through the list, removing movies over the selected popularity option
-	movies.forEach((movie, index) => {
-		if (movie.popularity > pop) {
-			movies.shift();
-		}
-	})
-	return movies;
-}
+// const popularityChecker = (movies, pop) => {
+// 	movies.sort((a, b) => b.popularity - a.popularity);
+// 	// go through the list, removing movies over the selected popularity option
+// 	movies.forEach((movie, index) => {
+// 		if (movie.popularity > pop) {
+// 			movies.shift();
+// 		}
+// 	})
+// 	return movies;
+// }
 
 searchActorBtn.addEventListener("click", nicolasCager);
