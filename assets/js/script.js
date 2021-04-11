@@ -15,21 +15,29 @@ const searchMovieDatabase = function(){
     //get movie genre value when the search button is clicked
     let movieGenre = document.getElementById("movieGenre").value;
     // get movie rating when search button is clicked
-    let movieRating = document.getElementById("movieRating").value;
-    console.log(movieRating);
+    let moviePopularity = document.getElementById("movieRating").value;
+    console.log(moviePopularity);
 	//letiable for the movie database API
 	let movieApi = `https://api.themoviedb.org/3/search/movie?api_key=${TMDBapiKey}&query=${searchInputVal}`;
 	fetch(movieApi)
 		.then((response) => response.json())
 		.then((data) => {
-			console.log(data);
 			// turn the data into an array
 			let movieArray = Object.values(data);
-			movieArray = movieArray[1];
-			let idList = [];
-			let movieIds = movieArray.forEach((movie, index) => idList.push(movieArray[index].id));
-			// grab the movie ID of each movie in the list
-			console.log(idList);
+			let movieList = movieArray[1];
+			let movie = movieList[1];
+			let movieId = movieList[1].id;
+			// use the movie ID in another details fetch url
+			let movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDBapiKey}&language=en-US`
+			fetch(movieDetailsUrl)
+				.then((response) => response.json())
+				.then((detailsData) => {
+					// use popularity data to compare to the moviePopularity value
+					let pop = detailsData.popularity;
+
+					console.log(pop);
+
+				})
 			// render the movie poster image
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
