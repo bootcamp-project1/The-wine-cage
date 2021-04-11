@@ -51,66 +51,75 @@
         </article>
       </section>
 
-      <section id="search" class="m-2 rounded-lg border-2 bg-oreoLightBlue">
-        <div id="form-bucket" class="bg-oreoBlue rounded-xl">
-          <!-- add form here plz -->
-          <div class="p-3 bg-oreoLightBlue rounded">
+      <section id="search" class="rounded-xl border-2 bg-oreoLightBlue flex">
+        <form id="form-bucket" class="p-2 bg-oreoBlue rounded-xl flex flex-col">
+          <!-- movie search term -->
+          <div class="p-1 m-1 bg-oreoLightBlue rounded">
             <div class="bg-white flex items-center rounded-lg shadow-xl">
-              <input class="rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="searchMovie" type="text" placeholder="Search Term" value='godzilla'>
-              <div class="p-2">
-                <button class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" id="searchMovieBtn">
-                  search
-                </button>
-              </div>
-              </div>
+              <input class="rounded-full w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none" 
+                id="searchMovie" 
+                type="text" 
+                placeholder="search" 
+                value=''
+              >
             </div>
           </div>
-          <!-- movie genre select form -->
-          <label class="m-2 block bg-oreoBlue rounded text-center">
-            <span class="text-oreoLight text-center">movie genre</span>
-            <select class="form-select block w-full mt-1" id="movieGenre">
-              <option>Action</option>
-              <option>Comedy</option>
-              <option>Romance</option>
-              <option>Drama</option>
-              <option>Documentary</option>
-            </select>
-          </label>
-          <!-- actor/actress select form -->
-          <label class="m-2 block bg-oreoBlue rounded text-center">
-            <span class="text-oreoLight text-center">what's hot</span>
-            <select class="form-select block w-full mt-1" id="movieRating">
-              <option value='100000' selected disabled hidden>bet</option>
-              <option value='100000'>Highest popularity</option>
-              <option value='1000'>Pretty sweet</option>
-              <option value='500'>Fairly popular</option>
-              <option value='100'>Middle ground</option>
-              <option value='20'>Less popular</option>
-              <option value='5'>Least popular</option>
-            </select>
-          </label>
-          <!-- wine choice select form: -->
-          <label class="m-2 block bg-oreoBlue rounded text-center">
-            <span class="text-oreoLight text-center">snackies</span>
-            <select class="form-select block w-full mt-1">
-              <option>savory</option>
-              <option>sweet</option>
-              <option>tasty</option>
-            </select>
-          </label>
-          <!-- actor/actress search form -->
-          <div class="p-3 bg-oreoLightBlue rounded">
+          <!-- actor search -->
+          <div class="p-1 m-1 bg-oreoLightBlue rounded">
             <div class="bg-white flex items-center rounded-lg shadow-xl">
-              <input class="rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="searchActor" type="text" placeholder="Actor/Actress">
-              <div class="p-2">
-                <button class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" id="searchActorBtn">
-                  search
-                </button>
-                </div>
-              </div>
+              <input class="rounded-full w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none"
+                id="searchActor" 
+                type="text" 
+                placeholder="actor (optional)"
+              >
             </div>
           </div>
-        </div>
+          <!-- movie genre select -->
+          <div class='bg-oreoLightBlue rounded m-1'>
+            <label class="m-2 block bg-oreoDark rounded text-center">
+              <span class="text-oreoLight text-center block whitespace-nowrap">------ movie genre ------</span>
+              <select class="form-select block w-full mt-1" id="movieGenre">
+                <option>Action</option>
+                <option>Comedy</option>
+                <option>Romance</option>
+                <option>Drama</option>
+                <option>Documentary</option>
+              </select>
+            </label>
+          </div>
+          <!-- TMDB popularity rating -->
+          <div class='bg-oreoLightBlue rounded m-1'>
+            <label class="m-2 block bg-oreoDark rounded text-center">
+              <span class="text-oreoLight text-center block whitespace-nowrap">------- what's hot -------</span>
+              <select class="form-select block w-full mt-1" id="movieRating">
+                <option value='100000' selected disabled hidden>bet</option>
+                <option value='100000'>Highest popularity</option>
+                <option value='1000'>Pretty sweet</option>
+                <option value='500'>Fairly popular</option>
+                <option value='100'>Middle ground</option>
+                <option value='20'>Less popular</option>
+                <option value='5'>Least popular</option>
+              </select>
+            </label>
+          </div>
+          <!-- snack options select form -->
+          <div class='bg-oreoLightBlue rounded m-1'>
+            <label class="m-2 block bg-oreoDark rounded text-center">
+              <span class="text-oreoLight text-center block whitespace-nowrap">-------- snackies --------</span>
+              <select class="form-select block w-full mt-1">
+                <option>savory</option>
+                <option>sweet</option>
+                <option>tasty</option>
+              </select>
+            </label>
+          </div>
+          <!-- search button goes here -->
+          <div class="w-auto flex justify-center">
+            <button id="searchBtn" class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center">
+              search
+            </button>
+          </div>
+        </form>
       </section>
     </main>
     <script src="./assets/js/script.js"></script>
