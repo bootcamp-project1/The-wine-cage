@@ -56,12 +56,12 @@
           <!-- add form here plz -->
           <div class="p-3 bg-oreoLightBlue rounded">
             <div class="bg-white flex items-center rounded-lg shadow-xl">
-              <input class="rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="searchMovie" type="text" placeholder="Search Term">
-                <div class="p-2">
-                  <button class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" id="searchMovieBtn">
-                    search
-                  </button>
-                </div>
+              <input class="rounded-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="searchMovie" type="text" placeholder="Search Term" value='batman'>
+              <div class="p-2">
+                <button class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" id="searchMovieBtn">
+                  search
+                </button>
+              </div>
               </div>
             </div>
           </div>
@@ -80,10 +80,11 @@
           <label class="m-2 block bg-oreoBlue rounded text-center">
             <span class="text-oreoLight text-center">movie rating</span>
             <select class="form-select block w-full mt-1" id="movieRating">
-              <option>G</option>
-              <option>PG</option>
-              <option>PG-13</option>
-              <option>R</option>
+              <option value='G'>G</option>
+              <option value='PG'>PG</option>
+              <option value='PG'>PG-13</option>
+              <option value='R'>R</option>
+              <option value='any' selected disabled hidden>any</option>
             </select>
           </label>
           <!-- wine choice select form: -->
