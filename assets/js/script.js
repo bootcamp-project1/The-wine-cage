@@ -28,6 +28,19 @@ const searchMovieDatabase = function(){
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
 			moviePosterHolder.style.width = '500px';
+
+			// grab the movie ID to perform fetch for details
+			let movieId = movies[1].id;
+			// use the movie ID in another details fetch url
+			let movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDBapiKey}&language=en-US`
+			fetch(movieDetailsUrl)
+				.then((response) => response.json())
+				.then((detailsData) => {
+					console.log(detailsData);
+					// grab info about the movie here
+					let description = detailsData.overview;
+					console.log(description);
+				})
 		})
 }
 
