@@ -6,9 +6,8 @@ const searchInputVal = searchInput.value;
 const searchButton = document.getElementById("searchMovieBtn");
 //variable for movie poster
 const moviePosterHolder = document.getElementById("moviePoster");
-
-//variable for select menus
-// var genreSelect = 
+const TMDBapiKey = `9e2d992d8fb0f9588f0d380dff3225e8`;
+const nicCageID = '2963';
 
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
@@ -19,28 +18,15 @@ const searchMovieDatabase = function(){
     let movieRating = document.getElementById("movieRating").value;
     console.log(movieRating)
 	//letiable for the movie database API
-	let movieApi = 'https://api.themoviedb.org/3/search/movie?api_key=9e2d992d8fb0f9588f0d380dff3225e8&query=zombies';
-	let response = fetch(movieApi + searchInputVal)
-	.then((response) => response.json())
-	.then((data) => {
-		console.log(data);
-		let moviePoster = `https://image.tmdb.org/t/p/w500%${data.results[0].poster_path}`;
-		// clear out the old pic
-		console.log(moviePosterHolder);
-		moviePosterHolder.innerHTML = `<img src= '${moviePoster}' />`;
-		console.log(moviePoster)
-	})
-	
-
-	// .then(response => {
-	// 	var data = JSON.parse(movieApi + searchInputVal)
-	// 	console.log(data);
-	
-	// })
-	// .catch(err => {
-	// 	console.error(err);
-	// });
-
+	let movieApi = `https://api.themoviedb.org/3/search/movie?api_key=${TMDBapiKey}&query=${searchInputVal}`;
+	fetch(movieApi)
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data);
+			let moviePosterUrl = `https://image.tmdb.org/t/p/w500%${data.results[0].poster_path}`;
+			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
+			console.log(moviePoster)
+		})
 }
 
 searchButton.addEventListener("click", searchMovieDatabase)
@@ -52,8 +38,6 @@ searchButton.addEventListener("click", searchMovieDatabase)
 // .catch(err => console.error(err));
 
 // some variables for the TMDB search by actor ID, returns list of nic cage films
-const TMDBapiKey = `9e2d992d8fb0f9588f0d380dff3225e8`;
-const nicCageID = '2963';
 
 // TMDB api fetch here, searches by actor ID number
 const nicolasCager = (actor) => {
