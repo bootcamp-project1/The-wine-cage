@@ -22,22 +22,16 @@ const searchMovieDatabase = function(){
 	fetch(movieApi)
 		.then((response) => response.json())
 		.then((data) => {
-			// turn the data into an array
-			let movieArray = Object.values(data);
-			let movieList = movieArray[1];
-			let movie = movieList[1];
-			let movieId = movieList[1].id;
-			// use the movie ID in another details fetch url
-			let movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDBapiKey}&language=en-US`
-			fetch(movieDetailsUrl)
-				.then((response) => response.json())
-				.then((detailsData) => {
-					// use popularity data to compare to the moviePopularity value
-					let pop = detailsData.popularity;
-					
-					console.log(pop);
+			// turn 
+			let hotList = [];
+			// append values to the list
+			data.results.forEach((hot, index) => {
+				hotList.push(parseInt(`${data.results[index].popularity})`))
+			})
+			// sort the list from most to least
+			hotList.sort((a, b) => b - a);
+			console.log(hotList);
 
-				})
 			// render the movie poster image
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
