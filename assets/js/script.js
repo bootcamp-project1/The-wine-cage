@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 //variable for movie name input
 const searchInput = document.getElementById("searchMovie");
 const searchInputVal = searchInput.value;
@@ -8,6 +9,13 @@ const searchCageVal = searchCage.value;
 //variable for button press to search
 const searchMovieBtn = document.getElementById("searchMovieBtn");
 const searchActorBtn = document.getElementById("searchActorBtn")
+=======
+//variable for input
+const searchInput = document.getElementById("searchMovie");
+const searchInputVal = searchInput.value;
+//variable for button press to search
+const searchButton = document.getElementById("searchMovieBtn");
+>>>>>>> 4ab335a751b0d1c00fd6742b9e303d9eb70d0269
 //variable for movie poster
 const moviePosterHolder = document.getElementById("moviePoster");
 const TMDBapiKey = `9e2d992d8fb0f9588f0d380dff3225e8`;
@@ -52,6 +60,7 @@ searchMovieBtn.addEventListener("click", searchMovieDatabase)
 // some variables for the TMDB search by actor ID, returns list of nic cage films
 
 // TMDB api fetch here, searches by actor ID number
+<<<<<<< HEAD
 
 const nicolasCager = (actor) => {
 	fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${TMDBapiKey}`)
@@ -63,11 +72,22 @@ const nicolasCager = (actor) => {
 			console.log(data.cast.length)
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
 			moviePosterHolder.style.width = '200px';
+=======
+const nicolasCager = (actor) => {
+	fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${TMDBapiKey}`)
+		.then((response) => response.json())
+		.then((TMDBresponse) => {
+			console.log(TMDBresponse);
+>>>>>>> 4ab335a751b0d1c00fd6742b9e303d9eb70d0269
 		})
 		.catch(err => {
 			console.error(err);
 		});
+<<<<<<< HEAD
 }
 
 searchActorBtn.addEventListener("click", nicolasCager)
 
+=======
+}
+>>>>>>> 4ab335a751b0d1c00fd6742b9e303d9eb70d0269
