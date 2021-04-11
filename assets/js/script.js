@@ -87,7 +87,6 @@ const popularityChecker = (movies, pop) => {
 const buttonHandler = (e) => {
 	e.preventDefault();
 	// if search for actor input is empty, search by the search terms
-	console.log(searchActor.value)
 	if (searchActor.value === '') {
 		searchMovieDatabase();
 	} else { // if someone tries searching for an actor, nic cage em
