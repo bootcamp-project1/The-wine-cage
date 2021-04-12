@@ -42,22 +42,22 @@ const searchMovieDatabase = function(){
 
 // grab the wine recommendation based on select menu
 const getWinePairing = function() {
-    
+    let wineSelectNumber = Math.floor(Math.random() * 5);
+        console.log(wineSelectNumber);
     
     //fetch spoonacular api wine specific
-    fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value)
+    fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
     .then(response => response.json())
     .then((data) => {
-        //console.log(data)
+        console.log(data)
+        
         //get recommended wine URL
-        let wineRec = data.recommendedWines[0].imageUrl
+        let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
         wineImage.src = wineRec
-        console.log(wineRec)
         //get recommende wine title
-        let wineName = data.recommendedWines[0].title;
+        let wineName = data.recommendedWines[wineSelectNumber].title;
         //create element to hold title
-        const wineNameHolder = document.createElement('div');
-        wineNameHolder.classList = 'text-oreoLight text-2xl p-2 align-center'
+        const wineNameHolder = document.getElementById('wineTitle');
         wineNameHolder.textContent = wineName;
         wineImageContainer.appendChild(wineNameHolder);
     })
