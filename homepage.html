@@ -24,51 +24,31 @@
       id="header"
       class="bg-oreoLight flex flex-grow w-full text-gray-300"
     >
-<<<<<<< HEAD
       <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
       <h1 class="text-6xl flex-grow p-2 block text-oreoDark">The Wine Cage</h1>
       <nav class="p-4 hidden sm:block">
-        <a href="#random" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">random</a>
-        <a href="./about.html" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">about</a>
-        <a href="#contact" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
+        <a href="#random" id="randomlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">random</a>
+        <a href="./about.html" id="aboutlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">about</a>
+        <a href="#contact" id="contactlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
       </nav>
-=======
-      <span class="text-6xl flex-grow">&nbsp;</span>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl flex-grow p-2 block text-oreoDark whitespace-nowrap">
-        Snackolas Cage
-      </h1>
-      
-        <!-- header nav dropdown here -->
-        <nav class="p-3 flex flex-col text-gray-700 pt-1 bg-oreoMid z-50">
-          <a href="#random" class="border-b-2 border-blue-400 text-oreoDark hover:bg-blue-200 focus:ring-2">random</a>
-          <a href="#about" class="border-b-2 border-blue-400 text-oreoDark">about</a>
-          <a href="#contact" class="border-b-2 border-blue-400 text-oreoDark">contact</a>
-        </nav>
-      
->>>>>>> 872775a6f0a590ba0dc4a19f419323dd6ecb5882
     </header>
-    <main class="p-2 m-4 flex justify-center xs:flex-col-reverse sm:flex-col-reverse">
+    <main class="p-2 m-4 justify-center md:flex">
       <section
         id="pairing-results"
-        class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center"
-      >
+        class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
         <article
           id="moviePoster"
-          class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark"
-        >
+          class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
           <img src="https://via.placeholder.com/300x500" alt="">
         </article>
-        <article
-          id="wine"
-          class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark"
-        >
+        <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
           <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
           <h3 id="wineTitle" class="text-oreoLight text-2xl align-center"></h3>
         </article>
       </section>
 
-      <section id="search" class="rounded-xl m-4 flex sm:justify-center">
-        <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0 sm:flex-1">
+      <section id="search" class="rounded-xl m-4 flex sm:justify-center md:rounded-xl m-4 flex flex-col-reverse">
+        <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0">
           <!-- movie search term -->
           <div class="p-1 m-1 bg-oreoLightBlue rounded">
             <div class="bg-white flex items-center rounded-lg shadow-xl">

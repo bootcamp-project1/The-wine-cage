@@ -104,3 +104,24 @@ body {
   color: var(--oreoLightBlue);
 }
 /* font color section end  */
+
+#randomlink:hover {
+  background-color: var(--oreoLightBlue);
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: #6c6463;
+}
+
+#aboutlink:hover {
+  background-color: var(--oreoLightBlue);
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: #6c6463;
+}
+
+#contactlink:hover {
+  background-color: var(--oreoLightBlue);
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: #6c6463;
+}
