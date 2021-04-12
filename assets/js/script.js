@@ -46,10 +46,16 @@ const accessLocalStorage = function(){
 }
 accessLocalStorage()
 
+//create a function to show recent searches
 
+const showRecentSearch = function(){
+	var recentSearchHolder = document.getElementById("recentSearchHolder");
+	var showSearch = document.createElement("li");
+	showSearch.innerHTML = searchArray[0];
+	recentSearchHolder.appendChild(showSearch)
+	}
 
-
-
+showRecentSearch();
 
 
 // fetch from TMDB with a search term
@@ -106,6 +112,8 @@ const getWinePairing = function() {
          const wineNameHolder = document.getElementById('wineTitle');
          wineNameHolder.textContent = wineName;
          wineImageContainer.appendChild(wineNameHolder);
+		 	wineImage.innerHTML = `<img src= '${wineImage.src}' />`;
+			wineImage.style.width = '500px';
      })
      .catch(err => console.error(err));
 }
