@@ -34,9 +34,11 @@ const saveToLocalStorage = function(){
 
 //accessing local storage
 const accessLocalStorage = function(){
-	let recentSearches = (localStorage.getItem(searchInputVal));
+	let recentSearches = (localStorage.getItem("searches"));
+	searchArray.push(recentSearches)
+	console.log(searchArray)
 }
-
+accessLocalStorage()
 
 
 
