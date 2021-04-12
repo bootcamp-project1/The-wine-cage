@@ -32,11 +32,20 @@ const searchMovieDatabase = function(){
 		})
 }
 
-// // grab the recipe responses from  spoonacular
-// fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=a9af3d76ab984d298de29d4837c5c9d1')
-// .then(response => response.json())
-// .then(data => console.log(data))
-// .catch(err => console.error(err));
+const wineSelect = document.getElementById('wineSelect');
+const wineImage = document.getElementById('wine');
+// grab the recipe responses from  spoonacular
+const getWinePairing = function() {
+    fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value)
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data)
+        let wineRec = data.recommendedWines.imageUrl
+        console.log(wineRec)
+    })
+    .catch(err => console.error(err));
+}
+getWinePairing()
 
 // some variables for the TMDB search by actor ID, returns list of nic cage films
 
