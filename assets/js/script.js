@@ -21,17 +21,16 @@ const searchMovieDatabase = function(){
     //get movie genre value when the search button is clicked
     let movieGenre = document.getElementById("movieGenre").value;
     // get movie rating when search button is clicked
-    let moviePopularity = document.getElementById("movieRating").value;
+    let movieRating = document.getElementById("movieRating").value;
 	//letiable for the movie database API
 	let movieApi = `https://api.themoviedb.org/3/search/movie?api_key=${TMDBapiKey}&query=${searchInputVal}`;
 	fetch(movieApi)
 		.then((response) => response.json())
 		.then((data) => {
-            console.log(data)
 			// an array to hold list of movies
 			let movies = data.results;
 			// sort the list from most to least
-			movies = popularityChecker(movies, moviePopularity);
+			movies = ratingChecker(movies, movieRating);
 			// render the movie poster image according to the option selected
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
@@ -73,12 +72,12 @@ const getWinePairing = function() {
 // TMDB api fetch here, searches by actor ID number
 
 const nicolasCager = () => {
-	let moviePopularity = document.getElementById("movieRating").value;
+	let movieRating = document.getElementById("movieRating").value;
 	fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${TMDBapiKey}`)
 		.then((response) => response.json())
 		.then((data) => {
 			let movies = data.cast;
-			movies = popularityChecker(movies, moviePopularity);
+			movies = ratingChecker(movies, movieRating);
 			moviePosterUrl = "https://image.tmdb.org/t/p/w500" + data.cast[Math.floor(Math.random()*data.cast.length)].poster_path;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
 			moviePosterHolder.style.width = '500px';
@@ -88,21 +87,29 @@ const nicolasCager = () => {
 		});
 }
 
-const popularityChecker = (movies, pop) => {
-	movies.sort((a, b) => b.popularity - a.popularity);
-	// go through the list, removing movies over the selected popularity option
+const ratingChecker = (movies, score) => {
+	movies.sort((a, b) => b.vote_average - a.vote_average);
+	// go through the list, removing movies over the selected vote_average option
 	movies.forEach((movie, index) => {
-		if (movie.popularity > pop) {
+		// compare vote_average to score picked
+		if (movie.vote_average > score) {
+			// remove the first element from the array
 			movies.shift();
+		} else if (movie.vote_average === 0) {
+			// make sure there is a rating for the movie
+			movies.shift();
+		} else if (movie.vote_count < 3) {
+			// make sure there are at least a few votes
+			movies.splice(index, 1);
 		}
 	})
+	console.log(movies)
 	return movies;
 }
 
 const buttonHandler = (e) => {
 	e.preventDefault();
 	// if search for actor input is empty, search by the search terms
-	console.log(searchActor.value)
 	if (searchActor.value === '') {
 		searchMovieDatabase();
 	} else { // if someone tries searching for an actor, nic cage em
