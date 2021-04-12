@@ -44,6 +44,7 @@ const searchMovieDatabase = function(){
 const getWinePairing = function() {
     let wineSelectNumber = Math.floor(Math.random() * 5);
         console.log(wineSelectNumber);
+    
     // let wineRatingNumber = document.getElementById('movieRating');
     // let wineScale = wineRatingNumber.value
     // console.log(wineScale)
