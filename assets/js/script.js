@@ -41,34 +41,35 @@ const searchMovieDatabase = function(){
 
 // grab the wine recommendation based on select menu
 const getWinePairing = function() {
+    // array item to select from results
     let wineSelectNumber = Math.floor(Math.random() * 6);
         //console.log(wineSelectNumber);
-    
+    // get movie rating value
     let wineRatingNumber = document.getElementById('movieRating');
+    //scale wine score to mach spoonacular api
     let wineScale = (wineRatingNumber.value - 1) / 10;
     
-    console.log(wineScale)
-    // fetch spoonacular api wine specific
+    //console.log(wineScale)
+    // fetch spoonacular api wine specific to score and wine selection
     fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=7&minRating=' + wineScale )
     .then(response => response.json())
     .then((data) => {
         console.log(data)
         
-        //get recommended wine URL
+        //get recommended wine URL & add source to DOM
         let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
         wineImage.src = wineRec
-        //get recommende wine title  rating
+        //get recommende wine title & rating
         let wineName = data.recommendedWines[wineSelectNumber].title;
         let wineScore = data.recommendedWines[wineSelectNumber].score;
         //rounding to nearest 100th
         let wineScoreRounded = Math.round(100 *wineScore)/100;
-        //create element to hold title & wine rating
+        //Get element to hold title & wine rating & the wine score scale
         const wineNameHolder = document.getElementById('wineTitle');
         const wineScoreHolder = document.getElementById('wineScoreDisplay');
         const wineScoreScale = document.getElementById('wineScore')
-        //Setting title to h3
+        //Setting title, rating, and scale
         wineNameHolder.textContent = wineName;
-        //setting wine rating to p
         wineScoreHolder.textContent = "Wine Score:" + wineScoreRounded;
         wineScoreScale.textContent = "(0.00 -1.00)";
     })
@@ -128,4 +129,4 @@ const buttonHandler = (e) => {
 }
 
 searchButton.addEventListener("click", buttonHandler);
-searchButton.addEventListener("click", getWinePairing)
+//searchButton.addEventListener("click", getWinePairing)
