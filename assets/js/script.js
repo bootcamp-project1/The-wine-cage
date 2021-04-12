@@ -1,6 +1,6 @@
 //variable for input
 const searchInput = document.getElementById("searchMovie");
-const searchInputVal = searchInput.value;
+let searchInputVal ;
 //variable for button press to search
 const searchButton = document.getElementById("searchBtn");
 const searchActor = document.getElementById("searchActor")
@@ -13,19 +13,31 @@ const nicCageID = '2963';
 //saving searches to an array
 let searchArray = []
 //saving user search to local storage
-	const saveToLocalStorage = function(){
-		 let searchInputVal = searchInput.value;
-		let currentSearch = localStorage.setItem(searchInputVal, searchInputVal);
-		searchArray.push(currentSearch)
-	}
-console.log(searchArray)
+const saveToLocalStorage = function(){
+	searchInputVal = searchInput.value;
+	localStorage.setItem(searchInputVal, searchInputVal);
+	accessLocalStorage()
+	console.log(searchArray)
+}
+
+//accessing local storage
+const accessLocalStorage = function(){
+	let recentSearches = (localStorage.getItem(searchInputVal));
+	console.log(recentSearches)
+	searchArray.push(recentSearches)
+	console.log(searchArray)
+}
+
+
+
+
 
 
 
 
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
-	let searchInputVal = searchInput.value;
+    searchInputVal = searchInput.value;
     //get movie genre value when the search button is clicked
     let movieGenre = document.getElementById("movieGenre").value;
     // get movie rating when search button is clicked
@@ -45,7 +57,12 @@ const searchMovieDatabase = function(){
 			moviePosterHolder.style.width = '500px';
 			saveToLocalStorage();
 		})
-}
+		//if user types in something that doesn't work, nic cage em
+		.catch(err => {
+			nicolasCager();
+		}
+)}
+
 
 // // grab the recipe responses from  spoonacular
 // fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=a9af3d76ab984d298de29d4837c5c9d1')
