@@ -11,6 +11,9 @@ const nicCageID = '2963';
 //variable for wine poster & wine select
 const wineSelect = document.getElementById('wineSelect');
 const wineImage = document.getElementById('wineImage');
+//variable for wine image container
+const wineImageContainer = document.getElementById('wine')
+
 
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
@@ -36,16 +39,27 @@ const searchMovieDatabase = function(){
 }
 
 
-console.log(wineImage)
 // grab the wine recommendation based on select menu
 const getWinePairing = function() {
+    // const wineRatingSelect = document.getElementById("movieRating").name;
+    // console.log(wineRatingSelect);
+
+    //fetch spoonacular api wine specific
     fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value)
     .then(response => response.json())
     .then((data) => {
-        console.log(data)
+        //console.log(data)
+        //get recommended wine URL
         let wineRec = data.recommendedWines[0].imageUrl
         wineImage.src = wineRec
         console.log(wineRec)
+        //get recommende wine title
+        let wineName = data.recommendedWines[0].title;
+        //create element to hold title
+        const wineNameHolder = document.createElement('span');
+        wineNameHolder.textContent = wineName;
+        //append title to article
+        wineImageContainer.appendChild(wineNameHolder);
     })
     .catch(err => console.error(err));
 }
@@ -95,4 +109,4 @@ const buttonHandler = (e) => {
 }
 
 searchButton.addEventListener("click", buttonHandler);
-searchButton.addEventListener("click", getWinePairing)
+//searchButton.addEventListener("click", getWinePairing)
