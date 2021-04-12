@@ -41,29 +41,38 @@ const searchMovieDatabase = function(){
 
 // grab the wine recommendation based on select menu
 const getWinePairing = function() {
-    let wineSelectNumber = Math.floor(Math.random() * 5);
-        console.log(wineSelectNumber);
+    let wineSelectNumber = Math.floor(Math.random() * 6);
+        //console.log(wineSelectNumber);
     
-    // let wineRatingNumber = document.getElementById('movieRating');
-    // let wineScale = wineRatingNumber.value
-    // console.log(wineScale)
-    //fetch spoonacular api wine specific
-    // fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
-    // .then(response => response.json())
-    // .then((data) => {
-    //     console.log(data)
+    let wineRatingNumber = document.getElementById('movieRating');
+    let wineScale = (wineRatingNumber.value - 1) / 10;
+    
+    console.log(wineScale)
+    // fetch spoonacular api wine specific
+    fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=7&minRating=' + wineScale )
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data)
         
-    //     //get recommended wine URL
-    //     let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
-    //     wineImage.src = wineRec
-    //     //get recommende wine title
-    //     let wineName = data.recommendedWines[wineSelectNumber].title;
-    //     //create element to hold title
-    //     const wineNameHolder = document.getElementById('wineTitle');
-    //     wineNameHolder.textContent = wineName;
-    //     wineImageContainer.appendChild(wineNameHolder);
-    // })
-    // .catch(err => console.error(err));
+        //get recommended wine URL
+        let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
+        wineImage.src = wineRec
+        //get recommende wine title  rating
+        let wineName = data.recommendedWines[wineSelectNumber].title;
+        let wineScore = data.recommendedWines[wineSelectNumber].score;
+        //rounding to nearest 100th
+        let wineScoreRounded = Math.round(100 *wineScore)/100;
+        //create element to hold title & wine rating
+        const wineNameHolder = document.getElementById('wineTitle');
+        const wineScoreHolder = document.getElementById('wineScoreDisplay');
+        const wineScoreScale = document.getElementById('wineScore')
+        //Setting title to h3
+        wineNameHolder.textContent = wineName;
+        //setting wine rating to p
+        wineScoreHolder.textContent = "Wine Score:" + wineScoreRounded;
+        wineScoreScale.textContent = "(0.00 -1.00)";
+    })
+    .catch(err => console.error(err));
 }
 
 

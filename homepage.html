@@ -42,8 +42,14 @@
           <img src="https://via.placeholder.com/300x500" alt="">
         </article>
         <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
-          <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
-          <h3 id="wineTitle" class="text-oreoLight text-2xl align-center"></h3>
+            
+            <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
+          
+            <ul id="wineTitle" class="underline text-oreoLight text-2xl align-center"></ul>
+            
+                <li id="wineScoreDisplay" class="text-oreoLight text-xl list-none"></li>
+                <li id="wineScore" class="text-oreoLight text-xs list-none"></li>
+            
         </article>
       </section>
 
@@ -89,11 +95,11 @@
               <span class="text-oreoLight text-center block whitespace-nowrap">------ movie score ------</span>
               <select class="form-select block w-full mt-1" id="movieRating">
                 <option value='10' selected disabled hidden>best</option>
-                <option value='10'>SICK</option>
+                <option value='9'>SICK</option>
                 <option value='8'>Pretty sweet</option>
                 <option value='6'>Watchable</option>
-                <option value='5'>Middle ground</option>
-                <option value='2.5'>Not the best</option>
+                <option value='4'>Middle ground</option>
+                <option value='3'>Not the best</option>
                 <option value='1'>Don't even watch</option>
               </select>
             </label>
