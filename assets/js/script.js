@@ -8,6 +8,9 @@ const searchActor = document.getElementById("searchActor")
 const moviePosterHolder = document.getElementById("moviePoster");
 const TMDBapiKey = `9e2d992d8fb0f9588f0d380dff3225e8`;
 const nicCageID = '2963';
+//variable for wine poster & wine select
+const wineSelect = document.getElementById('wineSelect');
+const wineImage = document.getElementById('wineImage');
 
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
@@ -32,20 +35,21 @@ const searchMovieDatabase = function(){
 		})
 }
 
-const wineSelect = document.getElementById('wineSelect');
-const wineImage = document.getElementById('wine');
-// grab the recipe responses from  spoonacular
+
+console.log(wineImage)
+// grab the wine recommendation based on select menu
 const getWinePairing = function() {
     fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value)
     .then(response => response.json())
     .then((data) => {
         console.log(data)
-        let wineRec = data.recommendedWines.imageUrl
+        let wineRec = data.recommendedWines[0].imageUrl
+        wineImage.src = wineRec
         console.log(wineRec)
     })
     .catch(err => console.error(err));
 }
-getWinePairing()
+
 
 // some variables for the TMDB search by actor ID, returns list of nic cage films
 
@@ -91,3 +95,4 @@ const buttonHandler = (e) => {
 }
 
 searchButton.addEventListener("click", buttonHandler);
+searchButton.addEventListener("click", getWinePairing)
