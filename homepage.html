@@ -17,7 +17,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Exo+2"
     />
-    <title>Snackolas Cage</title>
+    <title>The Wine Cage</title>
   </head>
   <body class="bg-oreoDark">
     <header
@@ -25,10 +25,10 @@
       class="bg-oreoLight flex flex-grow w-full text-gray-300"
     >
       <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
-      <h1 class="text-6xl flex-grow p-2 block text-oreoDark">Snackolas Cage</h1>
+      <h1 class="text-6xl flex-grow p-2 block text-oreoDark">The Wine Cage</h1>
       <nav class="p-4 hidden sm:block">
         <a href="#random" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">random</a>
-        <a href="#about" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">about</a>
+        <a href="./about.html" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">about</a>
         <a href="#contact" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
       </nav>
     </header>
@@ -47,7 +47,8 @@
           id="wine"
           class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark"
         >
-          <img src="https://via.placeholder.com/300x500" alt="">
+          <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
+          <h3 id="wineTitle" class="text-oreoLight text-2xl p-2 align-center"></h3>
         </article>
       </section>
 
@@ -105,11 +106,11 @@
           <!-- snack options select form -->
           <div class='bg-oreoLightBlue rounded m-1'>
             <label class="m-2 block bg-oreoDark rounded text-center">
-              <span class="text-oreoLight text-center block whitespace-nowrap">-------- snackies --------</span>
-              <select class="form-select block w-full mt-1">
-                <option>savory</option>
-                <option>sweet</option>
-                <option>tasty</option>
+              <span class="text-oreoLight text-center block whitespace-nowrap">-------- wine type --------</span>
+              <select class="form-select block w-full mt-1" id="wineSelect">
+                <option value='white_wine'>White Wine</option>
+                <option value="red_wine">Red Wine</option>
+                <option value="dessert_wine">Dessert Wine</option>
               </select>
             </label>
           </div>

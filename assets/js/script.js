@@ -8,6 +8,12 @@ const searchActor = document.getElementById("searchActor")
 const moviePosterHolder = document.getElementById("moviePoster");
 const TMDBapiKey = `9e2d992d8fb0f9588f0d380dff3225e8`;
 const nicCageID = '2963';
+//variable for wine poster & wine select
+const wineSelect = document.getElementById('wineSelect');
+const wineImage = document.getElementById('wineImage');
+//variable for wine image container
+const wineImageContainer = document.getElementById('wine')
+
 
 
 //saving searches to an array
@@ -58,6 +64,7 @@ const searchMovieDatabase = function(){
 	fetch(movieApi)
 		.then((response) => response.json())
 		.then((data) => {
+            console.log(data)
 			// an array to hold list of movies
 			let movies = data.results;
 			// sort the list from most to least
@@ -75,11 +82,34 @@ const searchMovieDatabase = function(){
 )}
 
 
-// // grab the recipe responses from  spoonacular
-// fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=a9af3d76ab984d298de29d4837c5c9d1')
-// .then(response => response.json())
-// .then(data => console.log(data))
-// .catch(err => console.error(err));
+
+// grab the wine recommendation based on select menu
+const getWinePairing = function() {
+    let wineSelectNumber = Math.floor(Math.random() * 5);
+        console.log(wineSelectNumber);
+    
+     let wineRatingNumber = document.getElementById('movieRating');
+     let wineScale = wineRatingNumber.value
+     console.log(wineScale)
+   // fetch spoonacular api wine specific
+     fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
+     .then(response => response.json())
+     .then((data) => {
+         console.log(data)
+        
+     //get recommended wine URL
+         let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
+         wineImage.src = wineRec
+         //get recommende wine title
+         let wineName = data.recommendedWines[wineSelectNumber].title;
+         //create element to hold title
+         const wineNameHolder = document.getElementById('wineTitle');
+         wineNameHolder.textContent = wineName;
+         wineImageContainer.appendChild(wineNameHolder);
+     })
+     .catch(err => console.error(err));
+}
+
 
 // some variables for the TMDB search by actor ID, returns list of nic cage films
 
@@ -124,3 +154,4 @@ const buttonHandler = (e) => {
 }
 
 searchButton.addEventListener("click", buttonHandler);
+searchButton.addEventListener("click", getWinePairing)
