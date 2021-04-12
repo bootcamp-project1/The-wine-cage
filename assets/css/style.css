@@ -105,6 +105,7 @@ body {
 }
 /* font color section end  */
 
+/* nav links style start*/
 #randomlink:hover {
   background-color: var(--oreoLightBlue);
   border-radius: 10px;
@@ -125,3 +126,4 @@ body {
   text-decoration: none;
   box-shadow: #6c6463;
 }
+/*nav links style end*/
