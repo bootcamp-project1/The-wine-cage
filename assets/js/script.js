@@ -44,24 +44,26 @@ const searchMovieDatabase = function(){
 const getWinePairing = function() {
     let wineSelectNumber = Math.floor(Math.random() * 5);
         console.log(wineSelectNumber);
-    
+    // let wineRatingNumber = document.getElementById('movieRating');
+    // let wineScale = wineRatingNumber.value
+    // console.log(wineScale)
     //fetch spoonacular api wine specific
-    fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
-    .then(response => response.json())
-    .then((data) => {
-        console.log(data)
+    // fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
+    // .then(response => response.json())
+    // .then((data) => {
+    //     console.log(data)
         
-        //get recommended wine URL
-        let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
-        wineImage.src = wineRec
-        //get recommende wine title
-        let wineName = data.recommendedWines[wineSelectNumber].title;
-        //create element to hold title
-        const wineNameHolder = document.getElementById('wineTitle');
-        wineNameHolder.textContent = wineName;
-        wineImageContainer.appendChild(wineNameHolder);
-    })
-    .catch(err => console.error(err));
+    //     //get recommended wine URL
+    //     let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
+    //     wineImage.src = wineRec
+    //     //get recommende wine title
+    //     let wineName = data.recommendedWines[wineSelectNumber].title;
+    //     //create element to hold title
+    //     const wineNameHolder = document.getElementById('wineTitle');
+    //     wineNameHolder.textContent = wineName;
+    //     wineImageContainer.appendChild(wineNameHolder);
+    // })
+    // .catch(err => console.error(err));
 }
 
 
