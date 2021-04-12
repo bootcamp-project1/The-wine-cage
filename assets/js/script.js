@@ -14,18 +14,27 @@ const nicCageID = '2963';
 let searchArray = []
 //saving user search to local storage
 const saveToLocalStorage = function(){
+	// find the value to be appended to the searchArray
 	searchInputVal = searchInput.value;
-	localStorage.setItem(searchInputVal, searchInputVal);
-	accessLocalStorage()
-	console.log(searchArray)
+	// make sure the search array isnt full
+	if (searchArray.length < 5){
+		// append it to the searchArray
+		searchArray.push(searchInputVal);
+		// update localStorage
+		localStorage.setItem("searches", JSON.stringify(searchArray));
+	} else if (searchArray.length >= 5) {
+		// append it to the searchArray, so length = 6
+		searchArray.push(searchInputVal);
+		// take off the first element in the array
+		searchArray.shift();
+		// update localStorage
+		localStorage.setItem("searches", JSON.stringify(searchArray));
+	}
 }
 
 //accessing local storage
 const accessLocalStorage = function(){
 	let recentSearches = (localStorage.getItem(searchInputVal));
-	console.log(recentSearches)
-	searchArray.push(recentSearches)
-	console.log(searchArray)
 }
 
 
