@@ -48,13 +48,14 @@ const saveToLocalStorage = function(){
 		// update localStorage
 		localStorage.setItem("searches", JSON.stringify(searchArray));
 	}
-	showRecentSearch();
 }
 
 //accessing local storage
 const accessLocalStorage = function(){
 	let recentSearches = JSON.parse(localStorage.getItem("searches"));
-	searchArray = recentSearches;
+	if (recentSearches != null) {
+		searchArray = recentSearches;
+	}
 	console.log(searchArray)
 	showRecentSearch();
 }
@@ -82,7 +83,8 @@ const searchMovieDatabase = function(){
 			movies = ratingChecker(movies, movieRating);
 			// render the movie poster image according to the option selected
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
-			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal') />`;
+			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal')" />`;
+			console.log(moviePosterHolder.innerHTML)
 			moviePosterHolder.style.width = '500px';
 
 			// grab the movie ID to perform fetch for details
@@ -92,7 +94,6 @@ const searchMovieDatabase = function(){
 			fetch(movieDetailsUrl)
 				.then((response) => response.json())
 				.then((detailsData) => {
-					console.log(detailsData);
 					// grab info about the movie here
 					let description = detailsData.overview;
 					console.log(description);
@@ -124,7 +125,7 @@ const getWinePairing = function() {
         const wineNameHolder = document.getElementById('wineTitle');
         wineNameHolder.textContent = wineName;
         wineImageContainer.appendChild(wineNameHolder);
-		wineImage.innerHTML = `<img src= '${wineImage.src}' class='cursor-pointer' onclick="toggleModal('wine-modal')/>`;
+		wineImage.innerHTML = `<img src= '${wineImage.src}' class='cursor-pointer' onclick="toggleModal('wine-modal')" />`;
 		wineImage.style.width = '500px';
      })
      .catch(err => console.error(err));
@@ -167,7 +168,6 @@ const ratingChecker = (movies, score) => {
 			movies.splice(index, 1);
 		}
 	})
-	console.log(movies)
 	return movies;
 }
 
