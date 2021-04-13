@@ -5,25 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Mr+Dafoe"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Exo+2"
-    />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mr+Dafoe"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2"/>
     <title>The Wine Cage</title>
   </head>
   <body class="bg-oreoDark">
-    <header
-      id="header"
-      class="bg-oreoLight flex flex-grow w-full text-gray-300"
-    >
+    <header id="header" class="bg-oreoLight flex flex-grow w-full text-gray-300">
       <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
       <h1 class="text-6xl flex-grow p-2 block text-oreoDark">The Wine Cage</h1>
       <nav class="p-4 hidden sm:block">
@@ -33,26 +21,17 @@
       </nav>
     </header>
     <main class="p-2 m-4 justify-center md:flex">
-      <section
-        id="pairing-results"
-        class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
-        <article
-          id="moviePoster"
-          class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
+      <section id="pairing-results" class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
+        <article id="moviePoster" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
           <img src="https://via.placeholder.com/300x500" alt="">
         </article>
         <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
-            
             <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
-          
             <ul id="wineTitle" class="underline text-oreoLight text-2xl align-center"></ul>
-            
                 <li id="wineScoreDisplay" class="text-oreoLight text-xl list-none"></li>
                 <li id="wineScore" class="text-oreoLight text-xs list-none"></li>
-            
         </article>
       </section>
-
       <section id="search" class="rounded-xl m-4 flex sm:justify-center md:rounded-xl m-4 flex flex-col-reverse lg:h-full">
         <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0">
           <!-- movie search term -->
@@ -62,7 +41,6 @@
                 id="searchMovie"
                 type="text"
                 placeholder="search"
-                
               >
             </div>
           </div>
@@ -131,10 +109,6 @@
         </div>
       </section>
     </main>
-
-
-
-
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
