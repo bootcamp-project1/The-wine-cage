@@ -36,13 +36,15 @@ const saveToLocalStorage = function(){
 		// update localStorage
 		localStorage.setItem("searches", JSON.stringify(searchArray));
 	}
+	showRecentSearch();
 }
 
 //accessing local storage
 const accessLocalStorage = function(){
-	let recentSearches = (localStorage.getItem("searches"));
-	searchArray.push(recentSearches)
+	let recentSearches = JSON.parse(localStorage.getItem("searches"));
+	searchArray = recentSearches;
 	console.log(searchArray)
+	showRecentSearch();
 }
 accessLocalStorage()
 
@@ -54,9 +56,6 @@ const showRecentSearch = function(){
 	showSearch.innerHTML = searchArray[0];
 	recentSearchHolder.appendChild(showSearch)
 	}
-
-showRecentSearch();
-
 
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
@@ -70,7 +69,6 @@ const searchMovieDatabase = function(){
 	fetch(movieApi)
 		.then((response) => response.json())
 		.then((data) => {
-            console.log(data)
 			// an array to hold list of movies
 			let movies = data.results;
 			// sort the list from most to least
@@ -92,17 +90,12 @@ const searchMovieDatabase = function(){
 // grab the wine recommendation based on select menu
 const getWinePairing = function() {
     let wineSelectNumber = Math.floor(Math.random() * 5);
-        console.log(wineSelectNumber);
-    
      let wineRatingNumber = document.getElementById('movieRating');
      let wineScale = wineRatingNumber.value
-     console.log(wineScale)
    // fetch spoonacular api wine specific
      fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
      .then(response => response.json())
      .then((data) => {
-         console.log(data)
-        
      //get recommended wine URL
          let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
          wineImage.src = wineRec
