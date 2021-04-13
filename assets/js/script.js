@@ -13,6 +13,8 @@ const wineSelect = document.getElementById('wineSelect');
 const wineImage = document.getElementById('wineImage');
 //variable for wine image container
 const wineImageContainer = document.getElementById('wine')
+// constants to grab modal windows
+const movieModal = document.getElementById('movie-modal');
 
 //saving searches to an array
 let searchArray = []
@@ -80,9 +82,8 @@ const searchMovieDatabase = function(){
 			movies = ratingChecker(movies, movieRating);
 			// render the movie poster image according to the option selected
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
-			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
+			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal') />`;
 			moviePosterHolder.style.width = '500px';
-<<<<<<< HEAD
 
 			// grab the movie ID to perform fetch for details
 			let movieId = movies[1].id;
@@ -96,9 +97,6 @@ const searchMovieDatabase = function(){
 					let description = detailsData.overview;
 					console.log(description);
 				})
-=======
-			saveToLocalStorage();
->>>>>>> develop
 		})
 		//if user types in something that doesn't work, nic cage em
 		.catch(err => {
@@ -118,16 +116,16 @@ const getWinePairing = function() {
      .then(response => response.json())
      .then((data) => {
      //get recommended wine URL
-         let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
-         wineImage.src = wineRec
-         //get recommende wine title
-         let wineName = data.recommendedWines[wineSelectNumber].title;
-         //create element to hold title
-         const wineNameHolder = document.getElementById('wineTitle');
-         wineNameHolder.textContent = wineName;
-         wineImageContainer.appendChild(wineNameHolder);
-		 	wineImage.innerHTML = `<img src= '${wineImage.src}' />`;
-			wineImage.style.width = '500px';
+        let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
+        wineImage.src = wineRec
+        //get recommende wine title
+        let wineName = data.recommendedWines[wineSelectNumber].title;
+        //create element to hold title
+        const wineNameHolder = document.getElementById('wineTitle');
+        wineNameHolder.textContent = wineName;
+        wineImageContainer.appendChild(wineNameHolder);
+		wineImage.innerHTML = `<img src= '${wineImage.src}' class='cursor-pointer' onclick="toggleModal('wine-modal')/>`;
+		wineImage.style.width = '500px';
      })
      .catch(err => console.error(err));
 }
@@ -181,8 +179,11 @@ const buttonHandler = (e) => {
 	} else { // if someone tries searching for an actor, nic cage em
 		nicolasCager();
 	}
+}
 
+function toggleModal(modalID){
+    document.getElementById(modalID).classList.toggle("hidden");
 }
 
 searchButton.addEventListener("click", buttonHandler);
-//searchButton.addEventListener("click", getWinePairing)
+searchButton.addEventListener("click", getWinePairing)
