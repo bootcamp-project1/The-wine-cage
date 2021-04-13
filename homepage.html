@@ -27,32 +27,33 @@
       <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
       <h1 class="text-6xl flex-grow p-2 block text-oreoDark">The Wine Cage</h1>
       <nav class="p-4 hidden sm:block">
-        <a href="#random" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">random</a>
-        <a href="./about.html" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">about</a>
-        <a href="#contact" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
+        <a href="#random" id="randomlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">random</a>
+        <a href="./about.html" id="aboutlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">about</a>
+        <a href="#contact" id="contactlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
       </nav>
     </header>
-    <main class="p-2 m-4 flex justify-center">
+    <main class="p-2 m-4 justify-center md:flex">
       <section
         id="pairing-results"
-        class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center"
-      >
+        class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
         <article
           id="moviePoster"
-          class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark"
-        >
+          class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
           <img src="https://via.placeholder.com/300x500" alt="">
         </article>
-        <article
-          id="wine"
-          class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark"
-        >
-          <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
-          <h3 id="wineTitle" class="text-oreoLight text-2xl p-2 align-center"></h3>
+        <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
+            
+            <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
+          
+            <ul id="wineTitle" class="underline text-oreoLight text-2xl align-center"></ul>
+            
+                <li id="wineScoreDisplay" class="text-oreoLight text-xl list-none"></li>
+                <li id="wineScore" class="text-oreoLight text-xs list-none"></li>
+            
         </article>
       </section>
 
-      <section id="search" class="rounded-xl m-4 flex">
+      <section id="search" class="rounded-xl m-4 flex sm:justify-center md:rounded-xl m-4 flex flex-col-reverse lg:h-full">
         <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0">
           <!-- movie search term -->
           <div class="p-1 m-1 bg-oreoLightBlue rounded">
@@ -91,15 +92,15 @@
           <!-- TMDB popularity rating -->
           <div class='bg-oreoLightBlue rounded m-1'>
             <label class="m-2 block bg-oreoDark rounded text-center">
-              <span class="text-oreoLight text-center block whitespace-nowrap">------- what's hot -------</span>
+              <span class="text-oreoLight text-center block whitespace-nowrap">------ movie score ------</span>
               <select class="form-select block w-full mt-1" id="movieRating">
-                <option value='100000' selected disabled hidden>bet</option>
-                <option value='100000'>Highest popularity</option>
-                <option value='1000'>Pretty sweet</option>
-                <option value='500'>Fairly popular</option>
-                <option value='100'>Middle ground</option>
-                <option value='20'>Less popular</option>
-                <option value='5'>Least popular</option>
+                <option value='10' selected disabled hidden>best</option>
+                <option value='9'>SICK</option>
+                <option value='8'>Pretty sweet</option>
+                <option value='6'>Watchable</option>
+                <option value='4'>Middle ground</option>
+                <option value='3'>Not the best</option>
+                <option value='1'>Don't even watch</option>
               </select>
             </label>
           </div>

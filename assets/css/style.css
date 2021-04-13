@@ -25,14 +25,23 @@ body {
   width: 100%;
 }
 
+#header button {
+  font-family: "Exo 2", sans-serif;
+}
+
 #header nav {
   font-family: "Exo 2", sans-serif;
 }
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
 /* header styling ends here */
 
 /* results form styling start */
 #pairing-results article {
-  border: 3px solid var(--oreoMid)
+  border: 3px solid var(--oreoMid);
 }
 
 /* search form style start*/
@@ -74,7 +83,6 @@ body {
 }
 /* background colors section end */
 
-
 /* font color  sections start */
 .text-oreoDark {
   color: var(--oreoDark);
@@ -97,4 +105,25 @@ body {
 }
 /* font color section end  */
 
+/* nav links style start*/
+#randomlink:hover {
+  background-color: var(--oreoLightBlue);
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: #6c6463;
+}
 
+#aboutlink:hover {
+  background-color: var(--oreoLightBlue);
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: #6c6463;
+}
+
+#contactlink:hover {
+  background-color: var(--oreoLightBlue);
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: #6c6463;
+}
+/*nav links style end*/
