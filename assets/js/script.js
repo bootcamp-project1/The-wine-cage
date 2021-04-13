@@ -20,6 +20,7 @@ let searchArray = []
 //create a function to show recent searches
 const showRecentSearch = function(){
 	var recentSearchHolder = document.getElementById("recentSearchHolder");
+	recentSearchHolder.innerHTML = "Recent Searches";
 	for( let i = 0; i < searchArray.length; i ++){
 	var showSearch = document.createElement("li");
 	showSearch.innerHTML = searchArray[i];
