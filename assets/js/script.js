@@ -169,4 +169,4 @@ const buttonHandler = (e) => {
 }
 
 searchButton.addEventListener("click", buttonHandler);
-//searchButton.addEventListener("click", getWinePairing)
+searchButton.addEventListener("click", getWinePairing)
