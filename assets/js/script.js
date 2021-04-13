@@ -53,21 +53,24 @@ const saveToLocalStorage = function(){
 //accessing local storage
 const accessLocalStorage = function(){
 	let recentSearches = JSON.parse(localStorage.getItem("searches"));
-	if (recentSearches != null) {
+	if (recentSearches !== null && recentSearches !== undefined) {
 		searchArray = recentSearches;
+	} else {
+		localStorage.setItem("searches", JSON.stringify(searchArray));
 	}
 	console.log(searchArray)
 	showRecentSearch();
 }
 accessLocalStorage()
 
-
-
-
-
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
     searchInputVal = searchInput.value;
+	// make sure there is an input, else nic cage em
+	if (searchInputVal === undefined || searchInputVal == '' || searchInputVal === null) {
+		nicolasCager();
+		return;
+	}
     //get movie genre value when the search button is clicked
     let movieGenre = document.getElementById("movieGenre").value;
     // get movie rating when search button is clicked
@@ -84,7 +87,6 @@ const searchMovieDatabase = function(){
 			// render the movie poster image according to the option selected
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal')" />`;
-			console.log(moviePosterHolder.innerHTML)
 			moviePosterHolder.style.width = '500px';
 
 			// grab the movie ID to perform fetch for details
