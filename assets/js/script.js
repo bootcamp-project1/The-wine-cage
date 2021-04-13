@@ -14,7 +14,13 @@ const wineImage = document.getElementById('wineImage');
 //variable for wine image container
 const wineImageContainer = document.getElementById('wine')
 
-
+//create a function to show recent searches
+const showRecentSearch = function(){
+	var recentSearchHolder = document.getElementById("recentSearchHolder");
+	var showSearch = document.createElement("li");
+	showSearch.innerHTML = searchArray[0];
+	recentSearchHolder.appendChild(showSearch)
+	}
 
 //saving searches to an array
 let searchArray = []
@@ -48,14 +54,9 @@ const accessLocalStorage = function(){
 }
 accessLocalStorage()
 
-//create a function to show recent searches
 
-const showRecentSearch = function(){
-	var recentSearchHolder = document.getElementById("recentSearchHolder");
-	var showSearch = document.createElement("li");
-	showSearch.innerHTML = searchArray[0];
-	recentSearchHolder.appendChild(showSearch)
-	}
+
+
 
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
