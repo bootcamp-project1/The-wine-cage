@@ -14,16 +14,19 @@ const wineImage = document.getElementById('wineImage');
 //variable for wine image container
 const wineImageContainer = document.getElementById('wine')
 
+//saving searches to an array
+let searchArray = []
+
 //create a function to show recent searches
 const showRecentSearch = function(){
 	var recentSearchHolder = document.getElementById("recentSearchHolder");
+	for( let i = 0; i < searchArray.length; i ++){
 	var showSearch = document.createElement("li");
-	showSearch.innerHTML = searchArray[0];
+	showSearch.innerHTML = searchArray[i];
 	recentSearchHolder.appendChild(showSearch)
 	}
+}
 
-//saving searches to an array
-let searchArray = []
 //saving user search to local storage
 const saveToLocalStorage = function(){
 	// find the value to be appended to the searchArray
