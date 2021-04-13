@@ -6,6 +6,11 @@
   --oreoLight: #bbbcbc;
   --oreoBlue: #003087;
   --oreoLightBlue: #7cc6f2;
+  /* modal variables go here */
+  --smokeDark: rgba(0, 0, 0, 0.6);
+  --smoke: rgba(0, 0, 0, 0.5);
+  --smokeLight: rgba(0, 0, 0, 0.4)
+
 }
 
 body {
@@ -127,3 +132,18 @@ body {
   box-shadow: #6c6463;
 }
 /*nav links style end*/
+
+/* modal window styling starts here */
+.bg-smokeDark {
+  background-color: var(--smokeDark);
+}
+
+.bg-smoke {
+  background-color: var(--smoke);
+}
+
+.bg-smokeLight {
+  background-color: var(--smokeLight);
+}
+
+/* modal window styling ends here */
