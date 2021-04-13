@@ -23,10 +23,10 @@
     <main class="p-2 m-4 justify-center md:flex">
       <section id="pairing-results" class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
         <article id="moviePoster" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
-          <img src="https://via.placeholder.com/300x500" alt="">
+          <img src="https://www.placecage.com/g/250/600" class='cursor-pointer' onclick="toggleModal('movie-modal')" alt="">
         </article>
         <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
-            <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
+            <img id="wineImage" src="https://www.placecage.com/gif/400/500" class='cursor-pointer' onclick="toggleModal('wine-modal')" alt="">
             <ul id="wineTitle" class="underline text-oreoLight text-2xl align-center"></ul>
                 <li id="wineScoreDisplay" class="text-oreoLight text-xl list-none"></li>
                 <li id="wineScore" class="text-oreoLight text-xs list-none"></li>
@@ -107,6 +107,67 @@
               Recent Searches
           </ul>
         </div>
+      </section>
+      <section id="modal-holder">
+        <article id="movie-modal" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center bg-smokeDark">
+          <!-- the dark transparent background feature of the modal popup -->
+          <div class="relative w-auto my-6 mx-auto max-w-3xl">
+            <!-- content container, flex column -->
+            <div class="border-1 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <!-- header -->
+              <div class="flex items-start justify-between text-oreoDark p-3 border-b border-solid rounded-t">
+                <h3 id='movie-title' class="text-3xl font-semibold">Movie Title</h3>
+                <!-- close button -->
+                <button class="text-oreoLight bg-oreoBlue px-1 py-0.5 rounded-xl border-2 border-gray-400" onclick="toggleModal('movie-modal')">
+                  <span class="">X</span>
+                </button>
+              </div>
+              <!--body-->
+              <div class="relative p-3 flex-auto">
+                <p id='movie-description' class="my-1 text-oreoDark text-lg leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ut fugiat doloribus similique voluptate, assumenda magnam error magni excepturi ab. Et iusto iste quam sequi velit in recusandae ex quos!
+                </p>
+              </div>
+              <!--footer-->
+              <div class="flex items-center justify-center p-2 px-4 border-t border-solid rounded-b">
+                <!-- tribute button -->
+                <button class="text-oreoLight bg-oreoBlue p-2 rounded-xl border-2 border-gray-400" type="button" onclick="toggleModal('movie-modal')">
+                  &hearts; Nicolas Cage &hearts;
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <section id="modal-holder">
+          <article id="wine-modal" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center bg-smokeDark">
+            <!-- the dark transparent background feature of the modal popup -->
+            <div class="relative w-auto my-6 mx-auto max-w-3xl">
+              <!-- content container, flex column -->
+              <div class="border-1 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                <!-- header -->
+                <div class="flex items-start justify-between text-oreoDark p-3 border-b border-solid rounded-t">
+                  <h3 id='wine-title' class="text-3xl font-semibold">wine Title</h3>
+                  <!-- close button -->
+                  <button class="text-oreoLight bg-oreoBlue px-1 py-0.5 rounded-xl border-2 border-gray-400" onclick="toggleModal('wine-modal')">
+                    <span class="">X</span>
+                  </button>
+                </div>
+                <!--body-->
+                <div class="relative p-3 flex-auto">
+                  <p id='wine-description' class="my-1 text-oreoDark text-lg leading-relaxed">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ut fugiat doloribus similique voluptate, assumenda magnam error magni excepturi ab. Et iusto iste quam sequi velit in recusandae ex quos!
+                  </p>
+                </div>
+                <!--footer-->
+                <div class="flex items-center justify-center p-2 px-4 border-t border-solid rounded-b">
+                  <!-- tribute button -->
+                  <button class="text-oreoLight bg-oreoBlue p-2 rounded-xl border-2 border-gray-400" type="button" onclick="toggleModal('wine-modal')">
+                    &hearts; Wine &hearts;
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
       </section>
     </main>
     <script src="./assets/js/script.js"></script>
