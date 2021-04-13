@@ -22,9 +22,9 @@ const showRecentSearch = function(){
 	var recentSearchHolder = document.getElementById("recentSearchHolder");
 	recentSearchHolder.innerHTML = "Recent Searches";
 	for( let i = 0; i < searchArray.length; i ++){
-	var showSearch = document.createElement("li");
-	showSearch.innerHTML = searchArray[i];
-	recentSearchHolder.appendChild(showSearch)
+		var showSearch = document.createElement("li");
+		showSearch.innerHTML = searchArray[i];
+		recentSearchHolder.appendChild(showSearch)
 	}
 }
 
@@ -52,7 +52,13 @@ const saveToLocalStorage = function(){
 //accessing local storage
 const accessLocalStorage = function(){
 	let recentSearches = JSON.parse(localStorage.getItem("searches"));
-	searchArray = recentSearches;
+	// make sure to check if this value is null before overwriting the searchArray
+	if (recentSearches !== null || recentSearches !== undefined) {
+		searchArray = recentSearches;
+	} else {
+		// if it is null or undefined then localStorage was empty, so we set it
+		localStorage.setItem("searches", JSON.stringify(searchArray));
+	}
 	console.log(searchArray)
 	showRecentSearch();
 }
