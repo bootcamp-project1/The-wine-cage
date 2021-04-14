@@ -58,22 +58,11 @@ const saveToLocalStorage = function(){
 //accessing local storage
 const accessLocalStorage = function(){
 	let recentSearches = JSON.parse(localStorage.getItem("searches"));
-<<<<<<< HEAD
-	// make sure to check if this value is null before overwriting the searchArray
-	if (recentSearches !== null || recentSearches !== undefined) {
-		searchArray = recentSearches;
-	} else {
-		// if it is null or undefined then localStorage was empty, so we set it
-		localStorage.setItem("searches", JSON.stringify(searchArray));
-	}
-	console.log(searchArray)
-=======
 	if (recentSearches !== null && recentSearches !== undefined) {
 		searchArray = recentSearches;
 	} else {
 		localStorage.setItem("searches", JSON.stringify(searchArray));
 	}
->>>>>>> feature/modal-windows
 	showRecentSearch();
 }
 accessLocalStorage()
