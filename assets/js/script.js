@@ -93,10 +93,9 @@ const searchMovieDatabase = function(){
 			// sort the list from most to least
 			movies = ratingChecker(movies, movieRating);
 			// render the movie poster image according to the option selected
-			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
+			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${movies[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal')" />`;
 			moviePosterHolder.style.width = '500px';
-			console.log(movies)
 			// grab the movie ID to perform fetch for details
 			let movieId = movies[0].id;
 			// use the movie ID in another details fetch url
@@ -171,23 +170,12 @@ const nicolasCager = () => {
 }
 
 const ratingChecker = (movies, score) => {
-	movies.sort((a, b) => b.vote_average - a.vote_average);
-	// go through the list, removing movies over the selected vote_average option
-	movies.forEach((movie, index) => {
-		// compare vote_average to score picked
-
-		if (movie.vote_average > score) {
-			// remove the first element from the array
-			movies.shift();
-		} else if (movie.vote_average === 0) {
-			// make sure there is a rating for the movie
-			movies.shift();
-		} else if (movie.vote_count < 3) {
-			// make sure there are at least a few votes
-			movies.splice(index, 1);
-		}
-	})
-	return movies;
+	// sort the movies and filter out by vote_average and vote_count
+	const results = movies.sort((a, b) => b.vote_average - a.vote_average)
+		.filter(item => (item.vote_average <= parseInt(score)))
+		.filter(item => (item.vote_count >= 5));
+	console.log(results)
+	return results;
 }
 
 const buttonHandler = (e) => {
