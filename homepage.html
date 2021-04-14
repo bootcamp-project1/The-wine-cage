@@ -20,18 +20,20 @@
         <a href="#contact" id="contactlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
       </nav>
     </header>
-    <main class="p-2 m-4 justify-center md:flex">
+    <main class="p-2 m-4 justify-center flex flex-col-reverse">
+      <!-- pairing results section  -->
       <section id="pairing-results" class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
         <article id="moviePoster" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
-          <img src="https://via.placeholder.com/300x500" alt="">
+          <img src="https://www.placecage.com/g/250/600" class='cursor-pointer' onclick="toggleModal('movie-modal')" alt="">
         </article>
         <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
-            <img id="wineImage" src="https://via.placeholder.com/300x500" alt="">
+            <img id="wineImage" src="https://www.placecage.com/gif/400/500" class='cursor-pointer' onclick="toggleModal('wine-modal')" alt="">
             <ul id="wineTitle" class="underline text-oreoLight text-2xl align-center"></ul>
                 <li id="wineScoreDisplay" class="text-oreoLight text-xl list-none"></li>
                 <li id="wineScore" class="text-oreoLight text-xs list-none"></li>
         </article>
       </section>
+      <!-- search form -->
       <section id="search" class="rounded-xl m-4 flex sm:justify-center md:rounded-xl m-4 flex flex-col-reverse lg:h-full">
         <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0">
           <!-- movie search term -->
@@ -41,6 +43,7 @@
                 id="searchMovie"
                 type="text"
                 placeholder="search"
+                value="godzilla"
               >
             </div>
           </div>
@@ -95,18 +98,87 @@
           </div>
           <!-- search button goes here -->
           <div class="w-auto flex justify-center">
-            <button id="searchBtn" class="bg-blue-500 text-white rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center">
+            <button id="searchBtn" class="bg-oreoLightBlue text-oreoDark rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center">
               search
             </button>
           </div>
         </form>
       </section>
-      <section id = 'search-history' class="rounded-xl m-4 flex">
+      <!-- recent searches box -->
+      <section id ='search-history' class="rounded-xl m-4 flex order-first">
         <div id="listHolder" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0">
           <ul id="recentSearchHolder">
               Recent Searches
           </ul>
         </div>
+      </section>
+      <!-- modal windows for informations -->
+      <section id="modal-holder">
+        <!-- the dark transparent background feature of the modal popup -->
+        <article id="movie-modal" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center bg-smokeDark">
+          <div class="relative w-auto my-6 mx-auto max-w-sm sm:max-w-md md:max-w-xl z-51">
+            <!-- content container, flex column -->
+            <div class="border-1 rounded-lg shadow-lg relative flex flex-col w-full bg-oreoDark outline-none focus:outline-none">
+              <!-- header -->
+              <div class="flex items-start justify-between text-oreoLight p-2 border-b border-solid rounded-t">
+                <h3 id='movie-title' class="text-3xl font-semibold">Nicolas Cage</h3>
+                <!-- close button -->
+                <button class="bg-oreoLightBlue text-oreoDark rounded-lg px-2 py-1 hover:bg-blue-400 focus:outline-none flex items-center justify-center" onclick="toggleModal('movie-modal')">
+                  <span class="">x</span>
+                </button>
+              </div>
+              <!--body-->
+              <div class="relative p-3 flex-auto">
+                <p id='movie-details' class="my-1 text-oreoLight text-lg leading-relaxed">
+                  In February 2011, Cage said that, at a certain point in his career, he 
+                  realized that he had developed his own method of acting, which he described
+                  as "Nouveau Shamanic." He noted, "at some point I'll have to write a book"
+                  about it. Cage later explained that he drew the inspiration for the name
+                  from the book The Way of the Actor by Brian Bates, in which he read about 
+                  the parallel between the ancient shamans and thespians. In other
+                  interviews, Cage defined his acting style using terms such as German 
+                  Expressionism or "Western kabuki".
+                </p>
+              </div>
+              <!--footer-->
+              <div class="flex items-center justify-center p-2 px-4 border-t border-solid rounded-b">
+                <!-- tribute button -->
+                <button id='movie-button' class="bg-oreoLightBlue text-oreoDark rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" type="button" onclick="toggleModal('movie-modal')">
+                  &hearts; Nicolas Cage &hearts;
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- the dark transparent background feature of the modal popup -->
+        <article id="wine-modal" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center bg-smokeDark">
+          <div class="relative w-auto my-6 mx-auto max-w-sm sm:max-w-md md:max-w-xl z-51">
+            <!-- content container, flex column -->
+            <div class="border-1 rounded-lg shadow-lg relative flex flex-col w-full bg-oreoDark outline-none focus:outline-none">
+              <!-- header -->
+              <div class="flex items-start justify-between text-oreoLight p-2 border-b border-solid rounded-t">
+                <h3 id='wine-title' class="text-3xl font-semibold">Wine</h3>
+                <!-- close button -->
+                <button class="bg-oreoLightBlue text-oreoDark rounded-lg px-2 py-1 hover:bg-blue-400 focus:outline-none flex items-center justify-center" onclick="toggleModal('wine-modal')">
+                  <span class="">x</span>
+                </button>
+              </div>
+              <!--body-->
+              <div class="relative p-3 flex-auto">
+                <p id='wine-details' class="my-1 text-oreoLight text-lg leading-relaxed">
+                  Description of wine is supposed to be here!
+                </p>
+              </div>
+              <!--footer-->
+              <div class="flex items-center justify-center p-2 px-4 border-t border-solid rounded-b">
+                <!-- tribute button -->
+                <button id='wine-button' class="bg-oreoLightBlue text-oreoDark rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" type="button" onclick="toggleModal('wine-modal')">
+                  Wine
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
       </section>
     </main>
     <script src="./assets/js/script.js"></script>
