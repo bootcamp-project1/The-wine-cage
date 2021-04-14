@@ -127,3 +127,15 @@ body {
   box-shadow: #6c6463;
 }
 /*nav links style end*/
+
+ul {
+  background-color: var(--oreoLight);
+  color: var(--oreoDark);
+  font-family: "Exo 2", sans-serif;
+  border-radius: 10px;
+  text-align: center;
+}
+
+li {
+font-family: "Exo 2", sans-serif;
+}

@@ -21,9 +21,13 @@ let searchArray = []
 const showRecentSearch = function(){
 	var recentSearchHolder = document.getElementById("recentSearchHolder");
 	recentSearchHolder.innerHTML = "Recent Searches";
+	
+	recentSearchHolder.style.fontSize = "32px";
 	for( let i = 0; i < searchArray.length; i ++){
 		var showSearch = document.createElement("li");
 		showSearch.innerHTML = searchArray[i];
+		showSearch.style.color = "white";
+		showSearch.style.fontSize = "22px";
 		recentSearchHolder.appendChild(showSearch)
 	}
 }
