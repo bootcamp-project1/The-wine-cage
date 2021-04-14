@@ -151,9 +151,33 @@
           </div>
         </article>
         <!-- the dark transparent background feature of the modal popup -->
-        <article id="wine-modal" onclick="toggleModal('wine-modal')" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center bg-smokeDark">
-          <!-- content container, flex column -->
-          
+        <article id="wine-modal" class="hidden overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center bg-smokeDark">
+          <div class="relative w-auto my-6 mx-auto max-w-sm sm:max-w-md md:max-w-xl z-51">
+            <!-- content container, flex column -->
+            <div class="border-1 rounded-lg shadow-lg relative flex flex-col w-full bg-oreoDark outline-none focus:outline-none">
+              <!-- header -->
+              <div class="flex items-start justify-between text-oreoLight p-2 border-b border-solid rounded-t">
+                <h3 id='wine-title' class="text-3xl font-semibold">Wine</h3>
+                <!-- close button -->
+                <button class="bg-oreoLightBlue text-oreoDark rounded-lg px-2 py-1 hover:bg-blue-400 focus:outline-none flex items-center justify-center" onclick="toggleModal('wine-modal')">
+                  <span class="">x</span>
+                </button>
+              </div>
+              <!--body-->
+              <div class="relative p-3 flex-auto">
+                <p id='wine-details' class="my-1 text-oreoLight text-lg leading-relaxed">
+                  Description of wine is supposed to be here!
+                </p>
+              </div>
+              <!--footer-->
+              <div class="flex items-center justify-center p-2 px-4 border-t border-solid rounded-b">
+                <!-- tribute button -->
+                <button id='wine-button' class="bg-oreoLightBlue text-oreoDark rounded-lg p-2 hover:bg-blue-400 focus:outline-none flex items-center justify-center" type="button" onclick="toggleModal('wine-modal')">
+                  Wine
+                </button>
+              </div>
+            </div>
+          </div>
         </article>
       </section>
     </main>
