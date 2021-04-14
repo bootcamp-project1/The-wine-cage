@@ -28,7 +28,6 @@ let searchArray = []
 const showRecentSearch = function(){
 	var recentSearchHolder = document.getElementById("recentSearchHolder");
 	recentSearchHolder.innerHTML = "Recent Searches";
-	
 	recentSearchHolder.style.fontSize = "32px";
 	for( let i = 0; i < searchArray.length; i ++){
 		var showSearch = document.createElement("li");
@@ -174,7 +173,6 @@ const ratingChecker = (movies, score) => {
 	const results = movies.sort((a, b) => b.vote_average - a.vote_average)
 		.filter(item => (item.vote_average <= parseInt(score)))
 		.filter(item => (item.vote_count >= 5));
-	console.log(results)
 	return results;
 }
 
@@ -183,6 +181,7 @@ const buttonHandler = (e) => {
 	// if search for actor input is empty, search by the search terms
 	if (searchActor.value === '') {
 		searchMovieDatabase();
+		getWinePairing();
 	} else { // if someone tries searching for an actor, nic cage em
 		nicolasCager();
 	}
@@ -193,4 +192,3 @@ function toggleModal(modalID){
 }
 
 searchButton.addEventListener("click", buttonHandler);
-searchButton.addEventListener("click", getWinePairing)
