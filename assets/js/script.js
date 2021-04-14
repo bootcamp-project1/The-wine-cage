@@ -17,6 +17,9 @@ const wineImageContainer = document.getElementById('wine')
 const movieTitle = document.getElementById('movie-title');
 const movieDetails = document.getElementById('movie-details');
 const movieButton = document.getElementById('movie-button');
+const wineTitle = document.getElementById('wine-title');
+const wineDetails = document.getElementById('wine-details');
+const wineButton = document.getElementById('wine-button');
 
 //saving searches to an array
 let searchArray = []
@@ -132,6 +135,12 @@ const getWinePairing = function() {
 			wineImageContainer.appendChild(wineNameHolder);
 			wineImage.innerHTML = `<img src= '${wineImage.src}' class='cursor-pointer' onclick="toggleModal('wine-modal')" />`;
 			wineImage.style.width = '500px';
+			// put info about the wine into the wine modal
+			let description = data.recommendedWines[wineSelectNumber].description;
+			let rating = Math.round((data.recommendedWines[wineSelectNumber].score) * 100) / 10;
+			wineTitle.textContent = wineName;
+			wineDetails.textContent = description;
+			wineButton.textContent = `wine rating: ${rating}`;
      	})
      	.catch(err => console.error(err));
 }
@@ -162,6 +171,7 @@ const ratingChecker = (movies, score) => {
 	// go through the list, removing movies over the selected vote_average option
 	movies.forEach((movie, index) => {
 		// compare vote_average to score picked
+
 		if (movie.vote_average > score) {
 			// remove the first element from the array
 			movies.shift();
