@@ -13,8 +13,10 @@ const wineSelect = document.getElementById('wineSelect');
 const wineImage = document.getElementById('wineImage');
 //variable for wine image container
 const wineImageContainer = document.getElementById('wine')
-// constants to grab modal windows
-const movieModal = document.getElementById('movie-modal');
+// constants to grab modal window info elements
+const movieTitle = document.getElementById('movie-title');
+const movieDetails = document.getElementById('movie-details');
+const movieButton = document.getElementById('movie-button');
 
 //saving searches to an array
 let searchArray = []
@@ -58,7 +60,6 @@ const accessLocalStorage = function(){
 	} else {
 		localStorage.setItem("searches", JSON.stringify(searchArray));
 	}
-	console.log(searchArray)
 	showRecentSearch();
 }
 accessLocalStorage()
@@ -88,17 +89,21 @@ const searchMovieDatabase = function(){
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal')" />`;
 			moviePosterHolder.style.width = '500px';
-
+			console.log(movies)
 			// grab the movie ID to perform fetch for details
-			let movieId = movies[1].id;
+			let movieId = movies[0].id;
 			// use the movie ID in another details fetch url
 			let movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDBapiKey}&language=en-US`
 			fetch(movieDetailsUrl)
 				.then((response) => response.json())
 				.then((detailsData) => {
 					// grab info about the movie here
+					let title = detailsData.original_title;
 					let description = detailsData.overview;
-					console.log(description);
+					let rating = detailsData.vote_average;
+					movieTitle.textContent = title;
+					movieDetails.textContent = description;
+					movieButton.textContent = `movie rating: ${rating}`;
 				})
 		})
 		//if user types in something that doesn't work, nic cage em
@@ -107,30 +112,28 @@ const searchMovieDatabase = function(){
 		}
 )}
 
-
-
 // grab the wine recommendation based on select menu
 const getWinePairing = function() {
     let wineSelectNumber = Math.floor(Math.random() * 5);
-     let wineRatingNumber = document.getElementById('movieRating');
-     let wineScale = wineRatingNumber.value
-   // fetch spoonacular api wine specific
-     fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
-     .then(response => response.json())
-     .then((data) => {
-     //get recommended wine URL
-        let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
-        wineImage.src = wineRec
-        //get recommende wine title
-        let wineName = data.recommendedWines[wineSelectNumber].title;
-        //create element to hold title
-        const wineNameHolder = document.getElementById('wineTitle');
-        wineNameHolder.textContent = wineName;
-        wineImageContainer.appendChild(wineNameHolder);
-		wineImage.innerHTML = `<img src= '${wineImage.src}' class='cursor-pointer' onclick="toggleModal('wine-modal')" />`;
-		wineImage.style.width = '500px';
-     })
-     .catch(err => console.error(err));
+    let wineRatingNumber = document.getElementById('movieRating');
+    let wineScale = wineRatingNumber.value
+    // fetch spoonacular api wine specific
+    fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
+		.then(response => response.json())
+		.then((data) => {
+			//get recommended wine URL
+			let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
+			wineImage.src = wineRec
+			//get recommende wine title
+			let wineName = data.recommendedWines[wineSelectNumber].title;
+			//create element to hold title
+			const wineNameHolder = document.getElementById('wineTitle');
+			wineNameHolder.textContent = wineName;
+			wineImageContainer.appendChild(wineNameHolder);
+			wineImage.innerHTML = `<img src= '${wineImage.src}' class='cursor-pointer' onclick="toggleModal('wine-modal')" />`;
+			wineImage.style.width = '500px';
+     	})
+     	.catch(err => console.error(err));
 }
 
 
