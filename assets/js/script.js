@@ -167,23 +167,24 @@ const nicolasCager = () => {
 }
 
 const ratingChecker = (movies, score) => {
-	movies.sort((a, b) => b.vote_average - a.vote_average);
-	// go through the list, removing movies over the selected vote_average option
-	movies.forEach((movie, index) => {
-		// compare vote_average to score picked
+	const results = movies.sort((a, b) => b.vote_average - a.vote_average)
+		.filter(item => (item.vote_average <= parseInt(score)));
 
-		if (movie.vote_average > score) {
-			// remove the first element from the array
-			movies.shift();
-		} else if (movie.vote_average === 0) {
-			// make sure there is a rating for the movie
-			movies.shift();
-		} else if (movie.vote_count < 3) {
-			// make sure there are at least a few votes
-			movies.splice(index, 1);
-		}
-	})
-	return movies;
+	// go through the list, removing movies over the selected vote_average option
+	// movies.forEach((movie, index) => {
+	// 	// compare vote_average to score picked
+	// 	if (movie.vote_average > score) {
+	// 		// remove the first element from the array
+	// 		movies.shift();
+	// 	} else if (movie.vote_average === 0) {
+	// 		// make sure there is a rating for the movie
+	// 		movies.shift();
+	// 	} else if (movie.vote_count < 3) {
+	// 		// make sure there are at least a few votes
+	// 		movies.splice(index, 1);
+	// 	}
+	// })
+	return results;
 }
 
 const buttonHandler = (e) => {
