@@ -13,6 +13,13 @@ const wineSelect = document.getElementById('wineSelect');
 const wineImage = document.getElementById('wineImage');
 //variable for wine image container
 const wineImageContainer = document.getElementById('wine')
+// constants to grab modal window info elements
+const movieTitle = document.getElementById('movie-title');
+const movieDetails = document.getElementById('movie-details');
+const movieButton = document.getElementById('movie-button');
+const wineTitle = document.getElementById('wine-title');
+const wineDetails = document.getElementById('wine-details');
+const wineButton = document.getElementById('wine-button');
 
 //saving searches to an array
 let searchArray = []
@@ -50,31 +57,28 @@ const saveToLocalStorage = function(){
 		// update localStorage
 		localStorage.setItem("searches", JSON.stringify(searchArray));
 	}
-	showRecentSearch();
 }
 
 //accessing local storage
 const accessLocalStorage = function(){
 	let recentSearches = JSON.parse(localStorage.getItem("searches"));
-	// make sure to check if this value is null before overwriting the searchArray
-	if (recentSearches !== null || recentSearches !== undefined) {
+	if (recentSearches !== null && recentSearches !== undefined) {
 		searchArray = recentSearches;
 	} else {
-		// if it is null or undefined then localStorage was empty, so we set it
 		localStorage.setItem("searches", JSON.stringify(searchArray));
 	}
-	console.log(searchArray)
 	showRecentSearch();
 }
 accessLocalStorage()
 
-
-
-
-
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
     searchInputVal = searchInput.value;
+	// make sure there is an input, else nic cage em
+	if (searchInputVal === undefined || searchInputVal == '' || searchInputVal === null) {
+		nicolasCager();
+		return;
+	}
     //get movie genre value when the search button is clicked
     let movieGenre = document.getElementById("movieGenre").value;
     // get movie rating when search button is clicked
@@ -90,9 +94,24 @@ const searchMovieDatabase = function(){
 			movies = ratingChecker(movies, movieRating);
 			// render the movie poster image according to the option selected
 			let moviePosterUrl = `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`;
-			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
+			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal')" />`;
 			moviePosterHolder.style.width = '500px';
-			saveToLocalStorage();
+			console.log(movies)
+			// grab the movie ID to perform fetch for details
+			let movieId = movies[0].id;
+			// use the movie ID in another details fetch url
+			let movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDBapiKey}&language=en-US`
+			fetch(movieDetailsUrl)
+				.then((response) => response.json())
+				.then((detailsData) => {
+					// grab info about the movie here
+					let title = detailsData.original_title;
+					let description = detailsData.overview;
+					let rating = detailsData.vote_average;
+					movieTitle.textContent = title;
+					movieDetails.textContent = description;
+					movieButton.textContent = `movie rating: ${rating}`;
+				})
 		})
 		//if user types in something that doesn't work, nic cage em
 		.catch(err => {
@@ -100,30 +119,34 @@ const searchMovieDatabase = function(){
 		}
 )}
 
-
-
 // grab the wine recommendation based on select menu
 const getWinePairing = function() {
     let wineSelectNumber = Math.floor(Math.random() * 5);
-     let wineRatingNumber = document.getElementById('movieRating');
-     let wineScale = wineRatingNumber.value
-   // fetch spoonacular api wine specific
-     fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
-     .then(response => response.json())
-     .then((data) => {
-     //get recommended wine URL
-         let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
-         wineImage.src = wineRec
-         //get recommende wine title
-         let wineName = data.recommendedWines[wineSelectNumber].title;
-         //create element to hold title
-         const wineNameHolder = document.getElementById('wineTitle');
-         wineNameHolder.textContent = wineName;
-         wineImageContainer.appendChild(wineNameHolder);
-		 	wineImage.innerHTML = `<img src= '${wineImage.src}' />`;
+    let wineRatingNumber = document.getElementById('movieRating');
+    let wineScale = wineRatingNumber.value
+    // fetch spoonacular api wine specific
+    fetch('https://api.spoonacular.com/food/wine/recommendation?apiKey=a9af3d76ab984d298de29d4837c5c9d1&wine=' + wineSelect.value + '&number=5')
+		.then(response => response.json())
+		.then((data) => {
+			//get recommended wine URL
+			let wineRec = data.recommendedWines[wineSelectNumber].imageUrl
+			wineImage.src = wineRec
+			//get recommende wine title
+			let wineName = data.recommendedWines[wineSelectNumber].title;
+			//create element to hold title
+			const wineNameHolder = document.getElementById('wineTitle');
+			wineNameHolder.textContent = wineName;
+			wineImageContainer.appendChild(wineNameHolder);
+			wineImage.innerHTML = `<img src= '${wineImage.src}' class='cursor-pointer' onclick="toggleModal('wine-modal')" />`;
 			wineImage.style.width = '500px';
-     })
-     .catch(err => console.error(err));
+			// put info about the wine into the wine modal
+			let description = data.recommendedWines[wineSelectNumber].description;
+			let rating = Math.round((data.recommendedWines[wineSelectNumber].score) * 100) / 10;
+			wineTitle.textContent = wineName;
+			wineDetails.textContent = description;
+			wineButton.textContent = `wine rating: ${rating}`;
+     	})
+     	.catch(err => console.error(err));
 }
 
 
@@ -152,6 +175,7 @@ const ratingChecker = (movies, score) => {
 	// go through the list, removing movies over the selected vote_average option
 	movies.forEach((movie, index) => {
 		// compare vote_average to score picked
+
 		if (movie.vote_average > score) {
 			// remove the first element from the array
 			movies.shift();
@@ -163,7 +187,6 @@ const ratingChecker = (movies, score) => {
 			movies.splice(index, 1);
 		}
 	})
-	console.log(movies)
 	return movies;
 }
 
@@ -175,7 +198,10 @@ const buttonHandler = (e) => {
 	} else { // if someone tries searching for an actor, nic cage em
 		nicolasCager();
 	}
+}
 
+function toggleModal(modalID){
+    document.getElementById(modalID).classList.toggle("hidden");
 }
 
 searchButton.addEventListener("click", buttonHandler);

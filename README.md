@@ -10,3 +10,7 @@ User has inputs and dropdowns to select options.
 ### preview
 
 ![coming soon](preview-c&w.jpg)
+
+### shout outs
+
+thanks to [this](https://www.creative-tim.com/learning-lab/tailwind-starter-kit/documentation/javascript/modals/regular) for help with the modal windows.
