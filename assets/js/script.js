@@ -199,7 +199,7 @@ const buttonHandler = (e) => {
 	// if search for actor input is empty, search by the search terms
 	if (searchActor.value === '') {
 		searchMovieDatabase();
-		// getWinePairing();
+		getWinePairing();
 	} else { // if someone tries searching for an actor, nic cage em
 		nicolasCager();
 		searchActor.value = "";
