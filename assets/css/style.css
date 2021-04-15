@@ -109,6 +109,7 @@ body {
   color: var(--oreoLightBlue);
 }
 /* font color section end  */
+<<<<<<< HEAD
 
 /* nav links style start*/
 #randomlink:hover {
@@ -158,3 +159,5 @@ font-family: "Exo 2", sans-serif;
 }
 
 /* modal window styling ends here */
+=======
+>>>>>>> feature/about-page
