@@ -78,6 +78,7 @@ const searchMovieDatabase = function(){
 	// make sure there is an ;input, else nic cage em
 	if (searchInputVal === undefined || searchInputVal == '' || searchInputVal === null) {
 		nicolasCager();
+		searchInputVal = "";
 		return;
 	}
     //get movie genre value when the search button is clicked
@@ -154,7 +155,7 @@ const getWinePairing = function() {
 
 // TMDB api fetch here, searches by actor ID number
 
-const nicolasCager = () => {
+const nicolasCager = function() {
 	let movieRating = document.getElementById("movieRating").value;
 	fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${TMDBapiKey}`)
 		.then((response) => response.json())
@@ -162,7 +163,7 @@ const nicolasCager = () => {
 			let movies = data.cast;
 			movies = ratingChecker(movies, movieRating);
 			moviePosterUrl = "https://image.tmdb.org/t/p/w500" + data.cast[Math.floor(Math.random()*data.cast.length)].poster_path;
-			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' />`;
+			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal')" />`;
 			moviePosterHolder.style.width = '500px';
 		})
 		.catch(err => {
@@ -186,7 +187,8 @@ const buttonHandler = (e) => {
 		getWinePairing();
 	} else { // if someone tries searching for an actor, nic cage em
 		nicolasCager();
-	}
+		searchArray.innertext = "";
+}
 }
 
 function toggleModal(modalID){
