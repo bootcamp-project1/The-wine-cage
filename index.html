@@ -11,14 +11,8 @@
     <title>The Wine Cage</title>
   </head>
   <body class="bg-oreoDark">
-    <header id="header" class="bg-oreoLight flex flex-grow w-full text-gray-300">
-      <div class="flex-grow"><!-- spaceholder -->&nbsp;</div>
-      <h1 class="text-6xl flex-grow p-2 block text-oreoDark">The Wine Cage</h1>
-      <nav class="p-4 hidden sm:block">
-        
-        <a href="./about.html" id="aboutlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">about</a>
-        <a href="#contact" id="contactlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
-      </nav>
+    <header id="header" class="bg-oreoLight flex items-center">
+      <h1 class="text-6xl p-2 text-oreoDark">The Wine Cage</h1>
     </header>
     <main class="p-2 m-auto justify-center flex flex-col-reverse flex-grow lg:flex-row sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-6xl">
       <!-- pairing results section  -->
@@ -168,8 +162,9 @@
         </article>
       </section>
     </main>
-    <footer id="footer" class="absolute bottom-0 bg-oreoLight flex flex-grow w-full text-gray-300">
-      <h1 class="text-6xl flex-grow p-2 block text-oreoDark">This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>
+    <footer id="footer" class="absolute bottom-0 bg-oreoLight flex space-around">
+      <h1 class="text-sm p-2 text-oreoDark">This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>
+      <a href="./about.html" id="aboutlink" class="p-2 text-oreoDark whitespace-nowrap">About the app.</a>
       <img id="footerimg" class="w-2/12 pr-5" src="./assets/images/lengthmoviedb.svg">
     </footer>
     <script src="./assets/js/script.js"></script>

@@ -47,16 +47,6 @@ body {
 /* footer style start */
 #footer {
   font-family: "Exo 2", sans-serif;
-  display: flex;
-  height: calc(1vh + 2rem);
-  overflow: hidden;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
-}
-
-#footer h1 {
-  font-size: 1rem;
 }
 
 #footerimg {
