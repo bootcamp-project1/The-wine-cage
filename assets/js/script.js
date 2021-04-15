@@ -1,4 +1,5 @@
 //variable for input
+const searchForm = document.getElementById(`form-bucket`);
 const searchInput = document.getElementById("searchMovie");
 let searchInputVal ;
 //variable for button press to search
@@ -27,13 +28,12 @@ let searchArray = []
 //create a function to show recent searches
 const showRecentSearch = function(){
 	var recentSearchHolder = document.getElementById("recentSearchHolder");
-	recentSearchHolder.innerHTML = "Recent Searches";
-	recentSearchHolder.style.fontSize = "32px";
+	recentSearchHolder.innerHTML = "recent searches:";
+	// recentSearchHolder.classList.add('', '');
 	for( let i = 0; i < searchArray.length; i ++){
 		var showSearch = document.createElement("li");
 		showSearch.innerHTML = searchArray[i];
-		showSearch.style.color = "white";
-		showSearch.style.fontSize = "22px";
+		showSearch.classList = 'text-sm text-oreoMid';
 		recentSearchHolder.appendChild(showSearch)
 	}
 }
@@ -82,7 +82,6 @@ const searchMovieDatabase = function(){
 		return;
 	}
     //get movie genre value when the search button is clicked
-    let movieGenre = document.getElementById("movieGenre").value;
     // get movie rating when search button is clicked
     let movieRating = document.getElementById("movieRating").value;
 	//letiable for the movie database API
@@ -113,6 +112,7 @@ const searchMovieDatabase = function(){
 					movieDetails.textContent = description;
 					movieButton.textContent = `movie rating: ${rating}`;
 				})
+				.catch(err => console.error(err));
 		})
 		//if user types in something that doesn't work, nic cage em
 		.catch(err => {
@@ -162,9 +162,23 @@ const nicolasCager = function() {
 		.then((data) => {
 			let movies = data.cast;
 			movies = ratingChecker(movies, movieRating);
-			moviePosterUrl = "https://image.tmdb.org/t/p/w500" + data.cast[Math.floor(Math.random()*data.cast.length)].poster_path;
+			let movie = movies[Math.floor(Math.random()*movies.length)];
+			moviePosterUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal')" />`;
 			moviePosterHolder.style.width = '500px';
+			let movieId = movie.id;
+			let movieDetailsUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${TMDBapiKey}&language=en-US`;
+			fetch(movieDetailsUrl)
+				.then((response) => response.json())
+				.then((detailsData) => {
+					let title = detailsData.original_title;
+					let description = detailsData.overview;
+					let rating = detailsData.vote_average;
+					movieTitle.textContent = title;
+					movieDetails.textContent = description;
+					movieButton.textContent = `movie rating: ${rating}`;
+				})
+				.catch(err => console.error(err));
 		})
 		.catch(err => {
 			console.error(err);
@@ -184,7 +198,7 @@ const buttonHandler = (e) => {
 	// if search for actor input is empty, search by the search terms
 	if (searchActor.value === '') {
 		searchMovieDatabase();
-		getWinePairing();
+		// getWinePairing();
 	} else { // if someone tries searching for an actor, nic cage em
 		nicolasCager();
 		searchArray.innertext = "";
