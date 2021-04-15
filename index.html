@@ -20,9 +20,9 @@
         <a href="#contact" id="contactlink" class="p-1 m-1 border-b-2 border-blue-400 text-oreoDark">contact</a>
       </nav>
     </header>
-    <main class="p-2 m-auto justify-center flex flex-col-reverse sm:flex-row sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
+    <main class="p-2 m-auto justify-center flex flex-col-reverse flex-grow lg:flex-row sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl">
       <!-- pairing results section  -->
-      <section id="pairing-results" class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
+      <section id="pairing-results" class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex-1 flex justify-center align-center">
         <article id="moviePoster" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
           <img src="https://www.placecage.com/g/250/600" class='cursor-pointer' onclick="toggleModal('movie-modal')" alt="">
         </article>
@@ -34,8 +34,8 @@
         </article>
       </section>
       <!-- search form -->
-      <section id="search" class="rounded-xl m-4 flex sm:justify-center md:rounded-xl m-4 flex flex-col-reverse lg:h-full">
-        <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0">
+      <section id="search" class="rounded-xl items-center m-4 flex-1 flex justify-center lg:self-start md:rounded-xl m-4">
+        <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0 max-w-sm">
           <!-- movie search term -->
           <div class="p-1 m-1 bg-oreoLightBlue rounded">
             <div class="bg-white flex items-center rounded-lg shadow-xl">
@@ -56,19 +56,6 @@
                 placeholder="actor (optional)"
               >
             </div>
-          </div>
-          <!-- movie genre select -->
-          <div class='bg-oreoLightBlue rounded m-1'>
-            <label class="m-2 block bg-oreoDark rounded text-center">
-              <span class="text-oreoLight text-center block whitespace-nowrap">------ movie genre ------</span>
-              <select class="form-select block w-full mt-1" id="movieGenre">
-                <option>Action</option>
-                <option>Comedy</option>
-                <option>Romance</option>
-                <option>Drama</option>
-                <option>Documentary</option>
-              </select>
-            </label>
           </div>
           <!-- TMDB popularity rating -->
           <div class='bg-oreoLightBlue rounded m-1'>
@@ -105,10 +92,10 @@
         </form>
       </section>
       <!-- recent searches box -->
-      <section id ='search-history' class="rounded-xl m-4 flex order-first sm:order-none">
+      <section id ='search-history' class="rounded-xl m-4 flex-1 flex order-first lg:order-none self-center lg:self-start">
         <div id="listHolder" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0">
-          <ul id="recentSearchHolder" >
-              Recent Searches
+          <ul id="recentSearchHolder" class='px-3 py-2 bg-oreoLight rounded-lg text-lg'>
+              recent searches
           </ul>
         </div>
       </section>
@@ -181,9 +168,9 @@
         </article>
       </section>
     </main>
-    <footer id="footer" class="bg-oreoLight flex flex-grow w-full text-gray-300">
+    <footer id="footer" class="absolute bottom-0 bg-oreoLight flex flex-grow w-full text-gray-300">
       <h1 class="text-6xl flex-grow p-2 block text-oreoDark">This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>
-      <img id="footerimg" class="w-2/12 pr-5" src="./assets/images/lengthmoviedb.svg"
+      <img id="footerimg" class="w-2/12 pr-5" src="./assets/images/lengthmoviedb.svg">
     </footer>
     <script src="./assets/js/script.js"></script>
   </body>
