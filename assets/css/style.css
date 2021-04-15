@@ -68,14 +68,6 @@ body {
   justify-content: space-between;
 }
 
-/* footer style start */
-.footer {
-  width: 100%;
-  padding: 15px;
-  background: rgb(110, 34, 110);
-  background-image: url("/assets/images/moviedb.svg");
-}
-
 /* background colors section start */
 .bg-oreoDark {
   background-color: var(--oreoDark);
