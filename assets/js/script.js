@@ -78,9 +78,8 @@ const searchMovieDatabase = function(){
 	// make sure there is an ;input, else nic cage em
 	if (searchInputVal === undefined || searchInputVal == '' || searchInputVal === null) {
 		nicolasCager();
-		
-		return;
 		searchInputVal = "";
+		return;
 	}
     //get movie genre value when the search button is clicked
     // get movie rating when search button is clicked
