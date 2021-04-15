@@ -28,7 +28,6 @@ let searchArray = []
 const showRecentSearch = function(){
 	var recentSearchHolder = document.getElementById("recentSearchHolder");
 	recentSearchHolder.innerHTML = "Recent Searches";
-	
 	recentSearchHolder.style.fontSize = "32px";
 	for( let i = 0; i < searchArray.length; i ++){
 		var showSearch = document.createElement("li");
@@ -74,7 +73,9 @@ accessLocalStorage()
 // fetch from TMDB with a search term
 const searchMovieDatabase = function(){
     searchInputVal = searchInput.value;
-	// make sure there is an input, else nic cage em
+	saveToLocalStorage();
+	showRecentSearch();
+	// make sure there is an ;input, else nic cage em
 	if (searchInputVal === undefined || searchInputVal == '' || searchInputVal === null) {
 		nicolasCager();
 		return;
