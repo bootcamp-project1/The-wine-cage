@@ -9,7 +9,7 @@ It uses 2 APIs to accomplish this.
 We used TheMovieDatabase and the Spoonacular to achieve our goals.
 
 User can input a movie title choice into a textbox.
-User can can try to search for an actor, but Nicalos Cage will be all they receive.
+User can can try to search for an actor, but Nicolas Cage will be all they receive.
 User will see a poster of the movie and a photo if available of the wine.  
 User will see a list of recent searches so they know what they've searched before.
 
