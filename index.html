@@ -16,17 +16,19 @@
     </header>
     <main class="p-2 self-center justify-center flex flex-col-reverse flex-grow lg:flex-row sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-6xl">
       <!-- pairing results section  -->
-      <section id="pairing-results" class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
-        <article id="moviePoster" class="inline-block self-center rounded w-auto m-1 bg-oreoDark">
-          <img src="https://www.placecage.com/g/250/600" class='cursor-pointer' onclick="toggleModal('movie-modal')" alt="">
-        </article>
-        <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
-            <img id="wineImage" src="https://www.placecage.com/gif/400/500" class='cursor-pointer' onclick="toggleModal('wine-modal')" alt="">
-            <ul id="wineTitle" class="underline text-oreoLight text-2xl align-center"></ul>
-                <li id="wineScoreDisplay" class="text-oreoLight text-xl list-none"></li>
-                <li id="wineScore" class="text-oreoLight text-xs list-none"></li>
-        </article>
-      </section>
+      <div class="container">
+        <section id="pairing-results" class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center ">
+          <article id="moviePoster" class="inline-block self-center rounded w-auto m-1 bg-oreoDark">
+            <img src="https://www.placecage.com/g/250/600" class='cursor-pointer' onclick="toggleModal('movie-modal')" alt="">
+          </article>
+          <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
+              <img id="wineImage" src="https://www.placecage.com/gif/400/500" class='cursor-pointer' onclick="toggleModal('wine-modal')" alt="">
+              <ul id="wineTitle" class="underline text-oreoLight text-2xl align-center"></ul>
+                  <li id="wineScoreDisplay" class="text-oreoLight text-xl list-none"></li>
+                  <li id="wineScore" class="text-oreoLight text-xs list-none"></li>
+          </article>
+        </section>
+      </div>
       <!-- search form -->
       <section id="search" class="rounded-xl items-center m-4 flex justify-center lg:self-start md:rounded-xl m-4">
         <form id="form-bucket" class="p-2 bg-oreoBlue border-2 rounded-xl flex flex-col flex-shrink-0 max-w-sm">
