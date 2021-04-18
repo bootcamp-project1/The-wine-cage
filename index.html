@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Exo+2"/>
     <title>The Wine Cage</title>
   </head>
-  <body class="bg-oreoDark">
+  <body class="bg-oreoDark flex flex-col min-h-screen">
     <header id="header" class="bg-oreoLight flex items-center">
       <h1 class="text-6xl p-2 text-oreoDark">The Wine Cage</h1>
     </header>
-    <main class="p-2 m-auto justify-center flex flex-col-reverse flex-grow lg:flex-row sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-6xl">
+    <main class="p-2 self-center justify-center flex flex-col-reverse flex-grow lg:flex-row sm:max-w-xl md:max-w-2xl lg:max-w-5xl xl:max-w-6xl">
       <!-- pairing results section  -->
       <section id="pairing-results" class="bg-oreoBlue rounded-lg m-4 p-1 border-2 flex justify-center align-center">
-        <article id="moviePoster" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
+        <article id="moviePoster" class="inline-block self-center rounded w-auto m-1 bg-oreoDark">
           <img src="https://www.placecage.com/g/250/600" class='cursor-pointer' onclick="toggleModal('movie-modal')" alt="">
         </article>
         <article id="wine" class="inline-block self-center rounded flex-grow w-auto m-1 bg-oreoDark">
@@ -162,10 +162,10 @@
         </article>
       </section>
     </main>
-    <footer id="footer" class="m-4 rounded-xl bg-oreoLight flex">
-      <h1 class="text-xs p-2 text-oreoDark inline">This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>
-      <a href="./about.html" id="aboutlink" class="p-2 text-oreoDark whitespace-nowrap inline">About the app.</a>
-      <img id="footerimg" class="w-2/12 pr-5 inline" src="./assets/images/lengthmoviedb.svg">
+    <footer id="footer" class="bg-oreoLight flex justify-around">
+      <h4 class="text-xs p-2 text-oreoDark self-center">This product uses the TMDb API but is not endorsed or certified by TMDb.</h1>
+      <a href="./about.html" id="aboutlink" class="p-2 text-oreoDark whitespace-nowrap">About the app.</a>
+      <img id="footerimg" class="p-2" src="./assets/images/lengthmoviedb.svg">
     </footer>
     <script src="./assets/js/script.js"></script>
   </body>
