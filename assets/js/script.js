@@ -156,12 +156,11 @@ const getWinePairing = function() {
 // TMDB api fetch here, searches by actor ID number
 
 const nicolasCager = function() {
-	let movieRating = document.getElementById("movieRating").value;
+	movieRating.value = 13;
 	fetch(`https://api.themoviedb.org/3/person/${nicCageID}/movie_credits?api_key=${TMDBapiKey}`)
 		.then((response) => response.json())
 		.then((data) => {
 			let movies = data.cast;
-			movies = ratingChecker(movies, movieRating);
 			let movie = movies[Math.floor(Math.random()*movies.length)];
 			moviePosterUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
 			moviePosterHolder.innerHTML = `<img src= '${moviePosterUrl}' class='cursor-pointer' onclick="toggleModal('movie-modal')" />`;
